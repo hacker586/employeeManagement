@@ -1,0 +1,40 @@
+.box{
+    text-align:center;
+    height: 35px;
+    width: 35px;
+    margin-top: 2px;
+    background-color: rgb(255, 226, 173);
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+.nagrikbut{
+    background-color: rgba(255, 226, 173, 0.274);
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+
+.box i{
+    font-size: larger;
+
+}
+
+#sub{
+    margin-left: -115px;
+    margin-top: -42px;
+    color: orange;
+    font-weight: bolder;
+    
+}
+.nagrik{
+    background-color: rgb(255, 226, 173);
+}
+.nagrik h5{
+    color: rgb(175, 174, 174);
+    font-weight: bold;
+}
+
+.table{
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    max-height: 400px;
+}

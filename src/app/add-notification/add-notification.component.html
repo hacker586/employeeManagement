@@ -1,0 +1,36 @@
+<p>Name, number, email address, aadhaar, gender, accept btn, if reject enter reason submit button</p>
+<ngx-datatable
+class="material"
+[rows]="newJoinees"
+[columns]="newJoineesColumns"
+
+[headerHeight]="50"
+[footerHeight]="50"
+[rowHeight]="'auto'"
+  >
+  </ngx-datatable>
+  <ng-template #acceptButton let-row="row">
+    <button (click)="onAccept()" class="btn btn-success">
+      Accept
+    </button>
+  </ng-template>
+
+  <ng-template #declineButton let-row="row">
+    <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Decline
+      </button>
+  </ng-template>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Reason</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <h3>Mention reason: </h3>
+        <textarea placeholder="Enter here" name="" id="" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+
+  
