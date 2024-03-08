@@ -1,7 +1,8 @@
+<br><br>
 <ul class="nav nav-pills mb-4 gap-3" id="pills-tab" >
               
-    <div class="card shadow" style="width: 18rem;">
-        <button class="nagrikbut" id="pills-Total-Nagrik-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Nagrik" type="button"
+    <div class="card shadow" style="width: 16rem;">
+        <button (click)="boolFalse()" class="nagrikbut" id="pills-Total-Nagrik-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Nagrik" type="button"
             aria-controls="pills-Total-Nagrik" aria-selected="true" >
             <div class="card-body d-grid gap-3 d-md-flex mb-2">
                 <div class="box">
@@ -12,8 +13,8 @@
             <h6 id="sub">{{data.length}}</h6>
         </button>
     </div>
-    <div class="card shadow" style="width: 18rem;">
-        <button class="nagrikbut" id="pills-Total-Jansevak-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Jansevak" type="button" role="tab" aria-controls="pills-Total-Jansevak" aria-selected="false" >
+    <div class="card shadow" style="width: 16rem;">
+        <button (click)="boolFalse()" class="nagrikbut" id="pills-Total-Jansevak-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Jansevak" type="button" role="tab" aria-controls="pills-Total-Jansevak" aria-selected="false" >
             <div class="card-body d-grid gap-3 d-md-flex mb-2">
                 <div class="box">
                     <i class="bi bi-people-fill"></i>
@@ -23,8 +24,8 @@
             <h6 id="sub">{{jansevak.length}}</h6>
         </button>
     </div>
-    <div class="card shadow" style="width: 18rem;">
-        <button class="nagrikbut" id="pills-Total-Complaints-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Complaints" type="button" role="tab" aria-controls="pills-Total-Complaints" aria-selected="false" >
+    <div class="card shadow" style="width: 16rem;">
+        <button (click)="boolFalse()" class="nagrikbut" id="pills-Total-Complaints-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Complaints" type="button" role="tab" aria-controls="pills-Total-Complaints" aria-selected="false" >
             <div class="card-body d-grid gap-3 d-md-flex mb-2">
                 <div class="box">
                     <i class="bi bi-people-fill"></i>
@@ -34,12 +35,49 @@
             <h6 id="sub">{{nagrik.length}}</h6>
         </button>
     </div>
+    <div class="card shadow" style="width: 16rem;">
+        <button (click)="boolFalse()" class="nagrikbut" id="pills-Total-Complaints-tab" data-bs-toggle="pill" data-bs-target="#pills-Total-Complaints" type="button" role="tab" aria-controls="pills-Total-Complaints" aria-selected="false" >
+            <div class="card-body d-grid gap-3 d-md-flex mb-2">
+                <div class="box">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <h5 class="card-title mb-3">Admin Name</h5>
+            </div>
+            <h6 id="sub2">Administrator</h6>
+        </button>
+    </div>
 </ul>
+<div *ngIf="bool" class="graphs d-grid gap-2 d-md-flex">
+    <div class="barchart">
+        <div class="card shadow"  style="width: 100%; padding: 10px;">
+            <div class="card-body d-grid d-md-flex mb-2">
+                <h5 class="card-title mb-3">Total Nagrik</h5>
+                <!-- <button class="btn  me-md-2 shadow" type="button" id="butbar"><i class="bi bi-list"></i></button> -->
+            </div>
+            <div class="bar">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="piechart">
+        <div class="card shadow "  style="width: 26.3rem;padding: 10px;">
+            <div class="card-body d-grid gap-4 d-md-flex mb-2">
+                <h5 class="card-title mb-3">Total Complaints</h5>
+                <!-- <button class="btn  me-md-2 shadow" type="button" id="butpie"><i class="bi bi-list"></i></button> -->
+            </div>
+            <div class="pie">
+                <canvas id="piechart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="tab-content" id="pills-tabContent">
 <div class="tab-pane fade" id="pills-Total-Nagrik" role="tabpanel" aria-labelledby="pills-Total-Nagrik-tab" tabindex="0">
 <div class="card shadow"> 
     <ngx-datatable
-    class="custom-datatable table"
+    #datatable
+    class="custom-datatable table "
     [rows]="data"
     [columns]="columns1"
     [headerHeight]="50"
@@ -53,7 +91,8 @@
 <div class="tab-pane fade" id="pills-Total-Jansevak" role="tabpanel" aria-labelledby="pills-Total-Jansevak-tab" tabindex="0">
 <div class="card shadow">
     <ngx-datatable
-class="custom-datatable table"
+    #datatable
+    class="custom-datatable table"
     [rows]="jansevak"
     [columns]="columns2"
     [headerHeight]="50"
@@ -67,7 +106,8 @@ class="custom-datatable table"
 <div class="tab-pane fade" id="pills-Total-Complaints" role="tabpanel" aria-labelledby="pills-Total-Complaints-tab" tabindex="0">
 <div class="card shadow">
     <ngx-datatable
-class="custom-datatable table"
+    #datatable
+    class="custom-datatable table"
     [rows]="nagrik"
     [columns]="columns3"
     [headerHeight]="50"

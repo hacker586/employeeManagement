@@ -1,0 +1,108 @@
+.box{
+    text-align:center;
+    height: 35px;
+    width: 35px;
+    margin-top: 2px;
+    background-color: rgb(255, 226, 173);
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+.nagrikbut{
+    background-color: rgba(255, 226, 173, 0.274);
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+
+.box i{
+    font-size: larger;
+
+}
+
+#sub{
+    margin-left: -85px;
+    margin-top: -42px;
+    color: orange;
+    font-weight: bolder;
+    
+}
+#sub2{
+    margin-left: 0px;
+    margin-top: -42px;
+    color: rgba(128, 128, 128, 0.521);
+    font-weight: bolder;
+}
+.nagrik{
+    background-color: rgb(255, 226, 173);
+}
+.nagrik h5{
+    color: rgb(175, 174, 174);
+    font-weight: bold;
+}
+
+.table{
+    /* overflow: hidden; */
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
+.graphs{
+    margin-top: 20px;
+    /* margin-left: 38px; */
+    justify-content: flex-start;
+}
+
+#butbar{
+    
+    /* margin-left: 600px; */
+    width: 40px;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+#butbar:hover{
+    background-color: royalblue;
+    color: white;
+}
+
+.barchart h5{
+    color: rgb(255, 165, 0);
+    font-weight: bolder;
+}
+
+#butbar i{
+    margin-left: -3px;
+    
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.bar{
+    width: 600px;
+    margin-left: 20px;
+    
+}
+
+.piechart h5{
+    color: rgb(255, 165, 0);
+    font-weight: bolder;
+}
+
+#butpie{
+    margin-left: 210px;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+#butpie:hover{
+    background-color: royalblue;
+    color: white;
+}
+
+.pie{
+    /* margin-left: 70px; */
+    margin-top: -4.8%;
+    margin-left: 13%;
+    height: 320px;
+    
+}
+

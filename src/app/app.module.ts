@@ -10,12 +10,14 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppRoutingModule } from './app.routes';
 import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
