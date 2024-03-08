@@ -7,6 +7,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { AppRoutingModule } from './app.routes';
+import { MatChipsModule } from '@angular/material/chips';
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,11 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
