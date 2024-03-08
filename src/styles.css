@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+.datatable-row-odd {
+    background: #f9f9f9;
+    /* padding-top: 2px; */
+  }
+  .datatable-row-group {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding-top: 1%;
+    /* padding-bottom: 1.5%; */
+    text-align: center;
+
+  }
+  .datatable-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    height: 50px; 
+    /* width: 200px; Set the desired height for your header */
+    /* background-color: #f0f0f0; Set a background color if needed */
+    position: sticky;
+    
+    top: 0px;
+    /* margin-top:-10px !important; */
+    z-index: 1500;
+
+  }
+  .datatable-header-cell {
+    margin-top: 12px;
+    
+    text-align: center;
+    font-weight: 800;
+    height: 100PX;
+    color: rgba(0, 0, 0, 0.54);
+    /* vertical-align: bottom; */
+    font-size: 12px;
+    font-weight: 500;
+  }

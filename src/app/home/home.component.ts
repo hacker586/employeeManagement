@@ -11,6 +11,7 @@ import { AddAnnouncementComponent } from '../add-announcement/add-announcement.c
 import { AddNotificationComponent } from '../add-notification/add-notification.component';
 import { AddNagrikComponent } from '../add-nagrik/add-nagrik.component';
 import { AddProfileComponent } from '../add-profile/add-profile.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit{
   janSevakArr: any[] = [];
   
  
-  
+  constructor(private router:Router){}
   ngOnInit(): void {
     // console.log(this.data);
     // console.log(this.jansevak);
@@ -43,7 +44,10 @@ export class HomeComponent implements OnInit{
     
   }
   showDashboard(){
+    // this.router.navigate(['/home'])
     this.componentName = "dashboard";
+    location.reload();
+
     // console.log("Haha1")
   }
   
