@@ -4,7 +4,7 @@ import janSevak from "../../data/janSevakList";
 import nagrik from "../../data/nagrik";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CommonModule } from '@angular/common';
-import { Chart,LinearScale,CategoryScale, BarController, BarElement, PieController, DoughnutController, ArcElement, Tooltip } from 'chart.js';
+import { Chart,LinearScale,CategoryScale, BarController, BarElement, PieController, DoughnutController, ArcElement, Tooltip, Legend } from 'chart.js';
 // import chart from 'chart.js'
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
 
   // constructor(private chart: Chart){}
   ngOnInit(): void {
-    Chart.register(LinearScale,CategoryScale,BarController,BarElement,DoughnutController,ArcElement,Tooltip);
+    Chart.register(LinearScale,CategoryScale,BarController,BarElement,DoughnutController,ArcElement,Tooltip,Legend);
     this.bool = true;
     this.columns1 = [
       {
@@ -134,6 +134,13 @@ export class DashboardComponent implements OnInit {
     if (piec) {
       new Chart(piec, {
         type: 'doughnut',
+        options:{
+          plugins:{
+            legend:{
+              display:true,
+            }
+          }
+        },
         data: {
           labels: [
             'In progress',
