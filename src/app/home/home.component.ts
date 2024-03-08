@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit{
   
  
   constructor(private router:Router){}
+
   ngOnInit(): void {
     // console.log(this.data);
     // console.log(this.jansevak);
@@ -71,5 +72,12 @@ export class HomeComponent implements OnInit{
   showProfile(){
     this.componentName = "profile"
     // console.log("Haha6")
+  }
+
+  toProfileSetup(){
+    this.router.navigate(['/profileSetup'])
+  }
+  toFamilySetup(){
+    this.router.navigate(['/familySetup'])
   }
 }
