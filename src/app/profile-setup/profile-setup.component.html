@@ -1,1 +1,114 @@
-<p>profile-setup works!</p>
+<a href="#"><-Edit Number</a>
+    <p>profile-setup works!</p>
+    <div>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    
+            <!-- Profile Photo Upload -->
+            <br><label>
+                Upload Profile Photo <br>
+                <img *ngIf="imageUrl" [src]="imageUrl" alt="Photo Here" style="max-width: 300px; max-height: 300px;"> 
+                <br><input type="file" placeholder="Profile Photo" formControlName="profilePhoto" (change)="onImageChange($event)" required>
+                <div *ngIf="profileForm.get('profilePhoto')?.touched">
+                    <div *ngIf="profileForm.get('profilePhoto')?.hasError('required')">Image is required.</div>
+                    <div *ngIf="profileForm.get('profilePhoto')?.hasError('invalidFileType')">Invalid file type. Allowed types: jpg, jpeg, png, gif.</div>
+                </div>
+            </label>
+            
+            
+            <br><label>
+                Enter Full Name:-
+                <input type=" text " placeholder=" Enter Full Name " formControlName="profileFullName"> 
+                <div *ngIf="profileForm.get('profileFullName')?.invalid && profileForm.get('profileFullName')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileFullName')?.errors?.['required']">
+                        Please Enter your Full Name.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                Enter Mobile Number:-
+                <input type="number" placeholder=" Enter Mobile Number " formControlName="profileMobNumber">
+                <div *ngIf="profileForm.get('profileMobNumber')?.invalid && profileForm.get('profileMobNumber')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileMobNumber')?.errors?.['required']">
+                        Please Enter your Mobile Number.
+                    </ng-container>
+                    <ng-container *ngIf="profileForm.get('profileMobNumber')?.errors?.['pattern']">
+                        Please Enter a 10 Digit Mobile Number.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                Enter Email Address:-
+                <input type="text" placeholder=" Enter Email Address " formControlName="profileEmailAdd">
+                <div *ngIf="profileForm.get('profileEmailAdd')?.invalid && profileForm.get('profileEmailAdd')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileEmailAdd')?.errors?.['required']">
+                        Please Enter your Email Address.
+                    </ng-container>
+                    <ng-container *ngIf="profileForm.get('profileEmailAdd')?.errors?.['pattern']">
+                        Please Enter a valid Email Address.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                Enter Full Address:-
+                <input type="text" placeholder=" Enter Full Address" formControlName="profileFullAdd">
+                <div *ngIf="profileForm.get('profileFullAdd')?.invalid && profileForm.get('profileFullAdd')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileFullAdd')?.errors?.['required']">
+                        Please Enter your Full Address.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                Enter PIN Code:-
+                <input type="number" placeholder=" Enter PIN Code" formControlName="profilePinCode">
+                <div *ngIf="profileForm.get('profilePinCode')?.invalid && profileForm.get('profilePinCode')?.touched">
+                    <ng-container *ngIf="profileForm.get('profilePinCode')?.errors?.['required']">
+                        Please Enter your PIN Code.
+                    </ng-container>
+                    <ng-container *ngIf="profileForm.get('profilePinCode')?.errors?.['pattern']">
+                        Please Enter a 6 Digit PIN Code.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                Enter Aadhar Card Number:-
+                <input type="number" placeholder=" Enter Adhar Card Number" formControlName="profileAadharNum">
+                <div *ngIf="profileForm.get('profileAadharNum')?.invalid && profileForm.get('profileAadharNum')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileAadharNum')?.errors?.['required']">
+                        Please Enter your Aadhar Number.
+                    </ng-container>
+                    <ng-container *ngIf="profileForm.get('profileAadharNum')?.errors?.['pattern']">
+                        Please Enter a 12 Digit Aadhar Number.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                Enter Voter ID Number:-
+                <input type="text" placeholder=" Enter Voter ID " formControlName="profileVoterId">
+                <div *ngIf="profileForm.get('profileVoterId')?.invalid && profileForm.get('profileVoterId')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileVoterId')?.errors?.['required']">
+                        Please Enter your Voter ID.
+                    </ng-container>
+                    <ng-container *ngIf="profileForm.get('profileVoterId')?.errors?.['pattern']">
+                        Please Enter a valid Voter ID.
+                    </ng-container>
+                </div>
+            </label>
+            <br><label>
+                <mat-chip-list formControlName="profileGender">
+                    <mat-chip *ngFor="let gender of genders" [value]="gender.value" (click)="selectGender(gender.value)">
+                        {{ gender.label }}
+                    </mat-chip>
+                </mat-chip-list>
+                <div *ngIf="profileForm.get('profileGender')?.invalid && profileForm.get('profileGender')?.touched">
+                    <ng-container *ngIf="profileForm.get('profileGender')?.errors?.['required']">
+                        Please select a gender.
+                    </ng-container>
+                </div>
+            </label>
+            
+            
+            <br><button type="submit" [disabled]="profileForm.invalid" >Submit Form</button>
+        </form>
+    </div>
+    
+    <router-outlet></router-outlet>
