@@ -50,7 +50,12 @@ export class HomeComponent implements OnInit{
 
     // console.log("Haha1")
   }
-  
+  toProfileSetup(){
+    this.router.navigate(['/profileSetup'])
+  }
+  toFamilySetup(){
+    this.router.navigate(['/familySetup'])
+  }
   
   showAddJansevak(){
     this.componentName = "jansevak" 
