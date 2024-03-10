@@ -8,7 +8,7 @@ import { ReactiveFormsModule, FormGroup, Validators, FormBuilder } from '@angula
   styleUrl: './add-jan-sevak.component.css'
 })
 export class AddJanSevakComponent {
-  janSevakArr = JSON.parse((localStorage.getItem("newJansevak") || '[]'));
+  jansevakArr = JSON.parse((localStorage.getItem("JansevakArr") || '[]'));
 
   AddJansevakForm: FormGroup;
   constructor(private fb :FormBuilder){
@@ -18,6 +18,7 @@ export class AddJanSevakComponent {
     return this.fb.group({
       name:['', Validators.required],
       email:['', Validators.required],
+      age:['', Validators.required],
       gender: ['', Validators.required],
       address:['', Validators.required],
       aadhaar:['', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
@@ -25,13 +26,14 @@ export class AddJanSevakComponent {
     })
   }
   onSubmit(){
-    console.log(this.AddJansevakForm.value);
-    this.janSevakArr.push(this.AddJansevakForm.value)
-    console.log(this.janSevakArr);
-    localStorage.setItem("newJansevak", JSON.stringify( this.janSevakArr));
+    // console.log(this.AddJansevakForm.value);
+    this.jansevakArr.push(this.AddJansevakForm.value)
+    console.log(this.jansevakArr);
+    localStorage.setItem("JansevakArr", JSON.stringify( this.jansevakArr));
     this.AddJansevakForm.patchValue({
       name:"",
       email:"",
+      age:"",
       gender:"",
       address: "",
       aadhaar: "",

@@ -21,7 +21,7 @@
                 </div>
                 <h5 class="card-title mb-3">Total Jansevak</h5>
             </div>
-            <h6 id="sub">{{jansevak.length}}</h6>
+            <h6 id="sub">{{jansevakArr?.length}}</h6>
         </button>
     </div>
     <div class="card shadow" style="width: 16rem;">
@@ -93,7 +93,7 @@
     <ngx-datatable
     #datatable
     class="custom-datatable table"
-    [rows]="jansevak"
+    [rows]="jansevakArr"
     [columns]="columns2"
     [headerHeight]="50"
     [footerHeight]="50"
@@ -118,3 +118,9 @@
 </ngx-datatable>
 </div>
 </div>
+<!-- aadhaar : 34 -->
+<!-- address : "qwerty" -->
+<!-- email :"wertyu" -->
+<!-- gender : "male" -->
+<!-- name : "wertyu" -->
+<!-- voterId : 234354 -->

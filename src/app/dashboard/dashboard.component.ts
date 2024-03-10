@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import data from "../../data/data";
-import janSevak from "../../data/janSevakList";
+// import janSevak from "../../data/janSevakList";
 import nagrik from "../../data/nagrik";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CommonModule } from '@angular/common';
@@ -15,15 +15,19 @@ import { Chart,LinearScale,CategoryScale, BarController, BarElement, PieControll
 })
 export class DashboardComponent implements OnInit {
   data = data;
-  jansevak = janSevak;
+  jansevakArr = JSON.parse(localStorage.getItem("JansevakArr" )|| "{}");
   nagrik = nagrik;
   columns1: any[] = []
   columns2: any[] = []
   columns3: any[] = []
   bool: boolean = true;
 
+
   // constructor(private chart: Chart){}
   ngOnInit(): void {
+    this.jansevakArr = JSON.parse(localStorage.getItem("JansevakArr")|| "{}");
+    // console.log(typeof(this.jansevakArr))
+    console.log("HII", this.jansevakArr)
     Chart.register(LinearScale,CategoryScale,BarController,BarElement,DoughnutController,ArcElement,Tooltip,Legend);
     this.bool = true;
     this.columns1 = [
@@ -42,7 +46,6 @@ export class DashboardComponent implements OnInit {
       {
         prop: 'subject',
         name: 'subject',
-        width: 300
       },
       {
         prop: 'category',
@@ -55,24 +58,33 @@ export class DashboardComponent implements OnInit {
     ];
     this.columns2 = [
       {
-        prop: 'id',
-        name: 'id',
-        width: 300
-      },
-      {
         prop: 'name',
         name: 'name',
-        width: 300
+      },
+      {
+        prop: "email",
+        name: 'email',
       },
       {
         prop: 'age',
         name: 'age'
       },
       {
-        prop: "phone",
-        name: 'phone',
-        width: 300
-      }
+        prop: 'gender',
+        name: 'gender'
+      },
+      {
+        prop: "address",
+        name: 'address',
+      },
+      {
+        prop: 'aadhaar',
+        name: 'aadhaar',
+      },
+      {
+        prop: "voterId",
+        name: 'voterId',
+      },
     ]
     this.columns3 = [
       {
