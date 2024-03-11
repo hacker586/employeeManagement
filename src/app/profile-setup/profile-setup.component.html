@@ -5,7 +5,7 @@
     
             <!-- Profile Photo Upload -->
             <br><label>
-                Upload Profile Photo <br>
+                Upload your Profile Photo <br>
                 <img *ngIf="imageUrl" [src]="imageUrl" alt="Photo Here" style="max-width: 300px; max-height: 300px;"> 
                 <br><input type="file" placeholder="Profile Photo" formControlName="profilePhoto" (change)="onImageChange($event)" required>
                 <div *ngIf="profileForm.get('profilePhoto')?.touched">
