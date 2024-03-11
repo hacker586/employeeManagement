@@ -5,7 +5,7 @@ const complaints =  [
         "hrAssign": "HR123",
         "subject": "Salary Discrepancy",
         "category": "Finance",
-        "status": "Open"
+        "status": "In Progress"
       },
       {
         "complaintId": "C987654321",
@@ -13,7 +13,7 @@ const complaints =  [
         "hrAssign": "HR456",
         "subject": "Workplace Harassment",
         "category": "Employee Relations",
-        "status": "Closed"
+        "status": "In Progress"
       },
       {
         "complaintId": "C789012345",
@@ -21,7 +21,7 @@ const complaints =  [
         "hrAssign": "HR789",
         "subject": "Unfair Treatment",
         "category": "Employee Relations",
-        "status": "Open"
+        "status": "In Progress"
       },
       {
         "complaintId": "C567890123",
@@ -29,7 +29,7 @@ const complaints =  [
         "hrAssign": "HR234",
         "subject": "Health and Safety Concerns",
         "category": "Work Environment",
-        "status": "Open"
+        "status": "In Progress"
       },
       {
         "complaintId": "C234567890",
@@ -37,7 +37,7 @@ const complaints =  [
         "hrAssign": "HR567",
         "subject": "Overtime Compensation",
         "category": "Finance",
-        "status": "Closed"
+        "status": "In Progress"
       },
       {
         "complaintId": "C345678901",
@@ -45,7 +45,7 @@ const complaints =  [
         "hrAssign": "HR890",
         "subject": "Discrimination",
         "category": "Diversity and Inclusion",
-        "status": "Open"
+        "status": "In Progress"
       },
       {
         "complaintId": "C789123456",
@@ -53,7 +53,7 @@ const complaints =  [
         "hrAssign": "HR123",
         "subject": "Remote Work Approval",
         "category": "Employee Relations",
-        "status": "Open"
+        "status": "In Progress"
       },
       {
         "complaintId": "C901234567",
@@ -61,7 +61,7 @@ const complaints =  [
         "hrAssign": "HR456",
         "subject": "Training Request",
         "category": "Learning and Development",
-        "status": "Closed"
+        "status": "In Progress"
       },
       {
         "complaintId": "C456789012",
@@ -69,7 +69,7 @@ const complaints =  [
         "hrAssign": "HR789",
         "subject": "Promotion Inquiry",
         "category": "Career Development",
-        "status": "Open"
+        "status": "In Progress"
       },
       {
         "complaintId": "C012345678",
@@ -77,7 +77,7 @@ const complaints =  [
         "hrAssign": "HR234",
         "subject": "Team Collaboration Issues",
         "category": "Team Dynamics",
-        "status": "Closed"
+        "status": "Solved"
       },
       {
         "complaintId": "C890123456",
@@ -85,7 +85,7 @@ const complaints =  [
         "hrAssign": "HR567",
         "subject": "IT Support Request",
         "category": "Technology",
-        "status": "Open"
+        "status": "Solved"
       },
       {
         "complaintId": "C234567890",
@@ -93,7 +93,7 @@ const complaints =  [
         "hrAssign": "HR890",
         "subject": "Paternity Leave Approval",
         "category": "Employee Relations",
-        "status": "Open"
+        "status": "Solved"
       },
       {
         "complaintId": "C345678901",
@@ -101,7 +101,7 @@ const complaints =  [
         "hrAssign": "HR123",
         "subject": "Performance Review Dispute",
         "category": "Performance Management",
-        "status": "Closed"
+        "status": "Solved"
       },
       {
         "complaintId": "C789123456",
@@ -109,7 +109,7 @@ const complaints =  [
         "hrAssign": "HR456",
         "subject": "Sick Leave Request",
         "category": "Employee Benefits",
-        "status": "Open"
+        "status": "Solved"
       },
       {
         "complaintId": "C901234567",
@@ -117,7 +117,7 @@ const complaints =  [
         "hrAssign": "HR789",
         "subject": "Project Allocation Concern",
         "category": "Project Management",
-        "status": "Open"
+        "status": "Solved"
       },
       {
         "complaintId": "C456789012",
@@ -125,7 +125,7 @@ const complaints =  [
         "hrAssign": "HR234",
         "subject": "Vacation Approval",
         "category": "Employee Benefits",
-        "status": "Closed"
+        "status": "Solved"
       },
       {
         "complaintId": "C012345678",

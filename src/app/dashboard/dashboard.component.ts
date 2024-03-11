@@ -66,6 +66,10 @@ export class DashboardComponent implements OnInit {
         name: 'email',
       },
       {
+        prop: "mobileNo",
+        name: "mobileNo",
+      },
+      {
         prop: 'age',
         name: 'age'
       },

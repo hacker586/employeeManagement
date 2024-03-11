@@ -12,6 +12,11 @@
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Mobile No.</label>
+              <input type="number" formControlName="mobileNo" class="form-control" id="" aria-describedby="">
+              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Age</label>
               <input type="number" formControlName="age" class="form-control" id="" aria-describedby="">
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
@@ -24,7 +29,7 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" formControlName="gender" value="female" type="radio" id="flexRadioDefault2" checked>
+                <input class="form-check-input" formControlName="gender" value="female" type="radio" id="flexRadioDefault2">
                 <label class="form-check-label" for="flexRadioDefault2">
                   Female
                 </label>
@@ -38,9 +43,10 @@
               <input type="number" formControlName="aadhaar" class="form-control" id="" aria-describedby="">
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
+            
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Voter Id</label>
-              <input type="number" formControlName="voterId" class="form-control" id="" aria-describedby="">
+              <input type="text" formControlName="voterId" class="form-control" id="" aria-describedby="">
               <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
             </div>
             <button [disabled]="AddJansevakForm.invalid" type="submit" class="btn btn-primary">Add jansevak</button>
