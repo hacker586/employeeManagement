@@ -1,0 +1,64 @@
+.nagrikform{
+    margin-left: 22%;
+    margin-top: 3%;
+}
+#title{
+    align-self: start;
+    padding: 15px;
+    font-weight: bolder;
+    color: rgb(255, 165, 0);
+}
+
+.formleft{
+    margin-left: 15px;
+}
+
+.formleft h5{
+    padding-top: 20px;
+}
+
+.dot{
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: rgb(231, 231, 231);
+    border: 1px solid orange;
+}
+
+.formleft #uploadbut{
+    width: 60%;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(252, 143, 0);
+}
+
+.formleft #uploadbut i{
+    margin-right: 10px;
+}
+
+.dot img{
+    height: 130px;
+    width: 130px;
+    justify-self: flex-start;
+}
+
+#input{
+    background-color: rgba(255, 166, 0, 0.308);
+    border: 1px solid orange;
+    width: 240px;
+}
+
+#submitbutton{
+    width: 50%;
+    background-color: rgb(252, 143, 0);
+    color: white;
+    font-weight: bold;
+    margin-left: 15%;
+}
+
+.formright{
+    margin-left: 10%;
+}
+
+
