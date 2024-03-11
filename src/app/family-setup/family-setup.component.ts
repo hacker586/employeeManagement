@@ -31,9 +31,9 @@ export class FamilySetupComponent {
   createFamilyForm(): FormGroup{
     return this.fb.group({
       familyFullName:['Milind Patil',Validators.required],
-      familyMobNumber:['7424434194',[Validators.required,Validators.pattern("[0-9 ]{10}")]],
+      familyMobNumber:[7424434194,[Validators.required,Validators.pattern("[0-9 ]{10}")]],
       familyFullAdd:['not home',Validators.required],
-      familyAadharNum:['123456789012',[Validators.required,Validators.pattern("[0-9 ]{12}")]],
+      familyAadharNum:[123456789012,[Validators.required,Validators.pattern("[0-9 ]{12}")]],
       familyVoterId:['DEF1234567',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
       familyGender:['Male',Validators.required]});
   }
