@@ -1,14 +1,14 @@
-<div>
+<!-- <div>
     <form [formGroup]="annoncementForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="exampleFormControlFile1">Announcement Photo</label>
             <input formControlName="photo" type="file" (change)="onFileSelected($event)">
-            <div class="my-3 mx-3" style=" border-radius: 20px; height: 300px; width: 300px; background-color: burlywood;">
+            <div class="my-3 mx-3" style=" border-radius: 20px; height: 300px; width: 300px; background-color: rgb(163, 163, 163);">
                 <h1 *ngIf="!imageUrl">No Preview</h1>
                 <img style="width: 300px; height: 300px;" *ngIf="imageUrl" [src]="imageUrl" alt="Selected Image">
             </div>
             
-          </div>
+        </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input  formControlName="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title">
@@ -19,4 +19,45 @@
           </div>
           <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
+</div> -->
+<br>
+<div class="nagrikform">
+  <div class="card shadow" style="width: 50rem;">
+    <h5 class="card-title mb-3" id="title">Announcement</h5>
+    <form [formGroup]="annoncementForm" (ngSubmit)="onSubmit()">
+      <div class="nagrikdetail d-grid gap-2 d-md-flex">
+        <div class="formleft">
+          <div class="card shadow mb-5" style="width: 27rem;">             
+            <h5 class="card-title position-absolute start-50 translate-middle annchead" >Announcement Photo</h5>
+            <br><br>
+            <div class="my-3 mx-3 showphoto">
+              <h5 class="position-absolute start-50 translate-middle preview" *ngIf="!imageUrl">No Preview</h5>
+              <img class="previewimg" *ngIf="imageUrl" [src]="imageUrl" alt="Selected Image">
+          </div>
+              <!-- <div class="photo">
+                <div class="dot">
+                  <img src="./userimg.png" alt="img">
+                </div>
+              </div> -->
+           
+              <input formControlName="photo" type="file" (change)="onFileSelected($event)" class="form-control input mb-3 fileinput" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+              <!-- <input class="mb-3 " formControlName="photo" type="file" (change)="onFileSelected($event)"> -->
+
+              <!-- <button formControlName="photo" type="file" (change)="onFileSelected($event)" id="uploadbut" class="btn active mb-4" data-bs-toggle="button" aria-pressed="true"><i class="bi bi-upload"></i>Upload</button>         -->
+          </div>
+        </div>
+        <div class="formright mb-3">
+          <div class="col-md-6 mb-4">
+            <label for="exampleInputEmail1">Title</label>
+            <input  formControlName="title" type="text" class="form-control input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title">                          
+          </div>
+          <div class="col-md-6 mb-4">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea placeholder="Enter Description" formControlName="description" class="form-control input" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <button class="btn" type="submit" id="submitbutton">Submit</button>              
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
