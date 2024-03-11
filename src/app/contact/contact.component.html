@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to JanSevak</title>
+<!-- <link rel="stylesheet" href="styles.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="buttonController as buttonCtrl" class="container mt-5">
+<h1 class="mb-3">Welcome to <b style="color:purple">JanSevak</b></h1>
+<p class="mb-4">Enter your Email Address to get started</p>
+
+<div ng-controller="otpController as otpCtrl" class="mb-5">
+    <h2>Enter Your Email Address</h2>
+    <input type="text" ng-model="otpCtrl.Email" placeholder="Enter your Email" class="form-control mb-3"> <br><br>
+    <button class="btn btn-secondary mb-2" (click)="generateOTP()">send OTP</button>
+    <p>{{ timerMessage }}</p> <br> <br>
+    <span class="or-divider">Or</span><br><br>
+    <button class="btn btn-secondary ml-2" (click)="loginUsingPassword()">Set Your Password</button><br><br>
+    <p>After Setting Your Password login </p><br>
+    <button class="btn btn-primary" (click)="loginUsingEmail()">Login here:</button>
+</div>
+<p>OTP: {{otp}}</p>
+
+</body>
+</html>

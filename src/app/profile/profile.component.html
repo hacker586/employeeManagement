@@ -1,0 +1,29 @@
+<div class="password-page">
+    <h2>Set Password</h2>
+    <form [formGroup]="passwordForm" (ngSubmit)="submitForm()" class="needs-validation">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" required>
+          <div class="invalid-feedback">
+            Please provide a valid email.
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" class="form-control" required>
+        <div class="invalid-feedback">
+          Please provide a valid password.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" required>
+        <div class="invalid-feedback">
+          Please confirm your password.
+        </div>
+      </div>&nbsp; &nbsp;
+      <button type="submit" [disabled]="!passwordForm.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
+  
