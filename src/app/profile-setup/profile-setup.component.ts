@@ -42,7 +42,8 @@ export class ProfileSetupComponent {
       profilePinCode:[100000,[Validators.required,Validators.pattern("[0-9 ]{6}")]],
       profileAadharNum:[100000000000,[Validators.required,Validators.pattern("[0-9 ]{12}")]],
       profileVoterId:['ABC1234567',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
-      profileGender:['',Validators.required]},{ validators: imageRequiredValidator });
+      profileGender:['Male',Validators.required],
+      profileFamily:['']},{ validators: imageRequiredValidator });
   }
 
   onImageChange(event: any): void {
@@ -66,9 +67,13 @@ export class ProfileSetupComponent {
   }
 
   onSubmit(){
-
+    if(localStorage.getItem('userProfileData')){
+      this.formData= JSON.parse(localStorage.getItem('userProfileData') || '[]');
+    }
+    // console.log("fresh local storage",localStorage.getItem('userProfileData'));
     this.formData[this.profileForm.get('profileAadharNum')?.value]=this.profileForm.value;
     localStorage.setItem('userProfileData', JSON.stringify(this.formData));
+    console.log("updated local storage",localStorage.getItem('userProfileData'));
 
     // console.log(" Form in JSON Format ",this.profileForm.value);
     console.log(" Form in Key Value Format ",this.formData);

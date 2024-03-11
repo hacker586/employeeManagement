@@ -4,66 +4,65 @@
         
         <br><label>
             Enter Full Name:-
-            <input type=" text " placeholder=" Enter Full Name " formControlName="profileFullName"> 
-            <div *ngIf="familyForm.get('profileFullName')?.invalid && familyForm.get('profileFullName')?.touched">
-                <ng-container *ngIf="familyForm.get('profileFullName')?.errors?.['required']">
+            <input type=" text " placeholder=" Enter Full Name " formControlName="familyFullName"> 
+            <div *ngIf="familyForm.get('familyFullName')?.invalid && familyForm.get('familyFullName')?.touched">
+                <ng-container *ngIf="familyForm.get('familyFullName')?.errors?.['required']">
                     Please Enter your Full Name.
                 </ng-container>
             </div>
         </label>
         <br><label>
             Enter Mobile Number:-
-            <input type="number" placeholder=" Enter Mobile Number " formControlName="profileMobNumber">
-            <div *ngIf="familyForm.get('profileMobNumber')?.invalid && familyForm.get('profileMobNumber')?.touched">
-                <ng-container *ngIf="familyForm.get('profileMobNumber')?.errors?.['required']">
+            <input type="number" placeholder=" Enter Mobile Number " formControlName="familyMobNumber">
+            <div *ngIf="familyForm.get('familyMobNumber')?.invalid && familyForm.get('familyMobNumber')?.touched">
+                <ng-container *ngIf="familyForm.get('familyMobNumber')?.errors?.['required']">
                     Please Enter your Mobile Number.
                 </ng-container>
-                <ng-container *ngIf="familyForm.get('profileMobNumber')?.errors?.['pattern']">
+                <ng-container *ngIf="familyForm.get('familyMobNumber')?.errors?.['pattern']">
                     Please Enter a 10 Digit Mobile Number.
                 </ng-container>
             </div>
         </label>
         <br><label>
             Enter Full Address:-
-            <input type="text" placeholder=" Enter Full Address" formControlName="profileFullAdd">
-            <div *ngIf="familyForm.get('profileFullAdd')?.invalid && familyForm.get('profileFullAdd')?.touched">
-                <ng-container *ngIf="familyForm.get('profileFullAdd')?.errors?.['required']">
+            <input type="text" placeholder=" Enter Full Address" formControlName="familyFullAdd">
+            <div *ngIf="familyForm.get('familyFullAdd')?.invalid && familyForm.get('familyFullAdd')?.touched">
+                <ng-container *ngIf="familyForm.get('familyFullAdd')?.errors?.['required']">
                     Please Enter your Full Address.
                 </ng-container>
             </div>
         </label>
         <br><label>
             Enter Aadhar Card Number:-
-            <input type="number" placeholder=" Enter Adhar Card Number" formControlName="profileAadharNum">
-            <div *ngIf="familyForm.get('profileAadharNum')?.invalid && familyForm.get('profileAadharNum')?.touched">
-                <ng-container *ngIf="familyForm.get('profileAadharNum')?.errors?.['required']">
+            <input type="number" placeholder=" Enter Adhar Card Number" formControlName="familyAadharNum">
+            <div *ngIf="familyForm.get('familyAadharNum')?.invalid && familyForm.get('familyAadharNum')?.touched">
+                <ng-container *ngIf="familyForm.get('familyAadharNum')?.errors?.['required']">
                     Please Enter your Aadhar Number.
                 </ng-container>
-                <ng-container *ngIf="familyForm.get('profileAadharNum')?.errors?.['pattern']">
+                <ng-container *ngIf="familyForm.get('familyAadharNum')?.errors?.['pattern']">
                     Please Enter a 12 Digit Aadhar Number.
                 </ng-container>
             </div>
         </label>
         <br><label>
             Enter Voter ID Number:-
-            <input type="text" placeholder=" Enter Voter ID " formControlName="profileVoterId">
-            <div *ngIf="familyForm.get('profileVoterId')?.invalid && familyForm.get('profileVoterId')?.touched">
-                <ng-container *ngIf="familyForm.get('profileVoterId')?.errors?.['required']">
+            <input type="text" placeholder=" Enter Voter ID " formControlName="familyVoterId">
+            <div *ngIf="familyForm.get('familyVoterId')?.invalid && familyForm.get('familyVoterId')?.touched">
+                <ng-container *ngIf="familyForm.get('familyVoterId')?.errors?.['required']">
                     Please Enter your Voter ID.
                 </ng-container>
-                <ng-container *ngIf="familyForm.get('profileVoterId')?.errors?.['pattern']">
+                <ng-container *ngIf="familyForm.get('familyVoterId')?.errors?.['pattern']">
                     Please Enter a valid Voter ID.
                 </ng-container>
             </div>
         </label>
         <br><label>
-            <mat-chip-list formControlName="profileGender">
-                <mat-chip *ngFor="let gender of genders" [value]="gender.value" (click)="selectGender(gender.value)">
-                    {{ gender.label }}
-                </mat-chip>
-            </mat-chip-list>
-            <div *ngIf="familyForm.get('profileGender')?.invalid && familyForm.get('profileGender')?.touched">
-                <ng-container *ngIf="familyForm.get('profileGender')?.errors?.['required']">
+            Select your gender
+            <input type="radio" value="Male"    formControlName="familyGender"/> Male
+            <input type="radio" value="Female" formControlName="familyGender"/> Female
+            <input type="radio" value="Other" formControlName="familyGender"/> Other
+            <div *ngIf="familyForm.get('familyGender')?.invalid && familyForm.get('familyGender')?.touched">
+                <ng-container *ngIf="familyForm.get('familyGender')?.errors?.['required']">
                     Please select a gender.
                 </ng-container>
             </div>
@@ -71,5 +70,6 @@
         
         
         <br><button type="submit" [disabled]="familyForm.invalid" >Submit Form</button>
+        <br><button type="button" (click)="noFamily()">Go to main page</button>
     </form>
 </div>
