@@ -21,7 +21,8 @@
                 </div>
                 <h5 class="card-title mb-3">Total Jansevak</h5>
             </div>
-            <h6 id="sub">{{jansevakArr?.length}}</h6>
+            <h6 id="sub" *ngIf="jansevakArr?.length>0">{{jansevakArr?.length}}</h6>
+            <h6 id="sub" *ngIf="!(jansevakArr?.length>0)">0</h6>
         </button>
     </div>
     <div class="card shadow" style="width: 16rem;">
