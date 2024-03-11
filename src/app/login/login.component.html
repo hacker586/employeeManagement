@@ -1,30 +1,15 @@
-<div style="border-radius: 20px; padding: 20px;color: aliceblue; background-color:cadetblue;" class="container"> 
-    <!-- <img src="../../images/loginPage.jpg" alt=" "> -->
-    <h1>LOG IN</h1>
-    <h5>Welcome back!!!</h5>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <!-- <div *ngIf="loginForm.get('username').invalid">
-          Please enter a username.
-        </div> -->
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
-        <!-- <div *ngIf="loginForm.get('password').invalid">
-          Please enter a password.
-        </div> -->
-      </div>
-      <!-- <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="termsCheck">
-        <label class="form-check-label" for="exampleCheck1">Read all the <a href="">terms and condition</a></label>
-      </div> -->
-      <button type="submit" class="btn btn-success">Sign in</button>
-    </form>
-    <p>I don't have an account ? <a (click)="toSignUpPage()">Sign-Up</a> </p>
-    <a (click)="toPasswordPage()" >Forgot Password</a>
-  </div>
-  <router-outlet></router-outlet>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-4 border">
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" formControlName="email" id="email" class="form-control">
+    </div>
+    
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" formControlName="password" id="password" class="form-control">
+    </div>
+    <button  type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button><br>
+    <small>If new user?<a href="profile">then set the password first and then login</a></small>
+  </form>
   

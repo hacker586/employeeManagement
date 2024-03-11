@@ -1,48 +1,60 @@
+
+import { Router,RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RouterOutlet, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { NgModule } from '@angular/core';
-// import { NgModel } from '@angular/forms';
+
+
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
   standalone: true,
-  imports:[RouterOutlet, CommonModule, ReactiveFormsModule],
-  styleUrls: ['./login.component.css']
+  imports: [RouterLink,ReactiveFormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder, private router: Router) { 
-    this.loginForm = this.createForm();
-  }
-  loginForm: FormGroup;
-  createForm(): FormGroup {
-    return this.fb.group({
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
-    });
-  }
-  ngOnInit(): void {
-    console.log("I am loaded");
-  }
-
-  onSubmit() {
-    if (this.loginForm.valid) {
-      // Perform login logic here
-      console.log('Form submitted!', this.loginForm.value);
-      this.router.navigate(['/home'])
-
-    } else {
-      // Form is invalid, show error or handle accordingly
-      console.log('Form is invalid');
+  
+    loginForm!: FormGroup;
+    mypassword =JSON.parse( localStorage.getItem('mypassword')|| '[]');
+    myPasswordArr: any[] = [];
+    e: any;
+  
+  
+    constructor(private formBuilder: FormBuilder, private router:Router) { }
+  
+    ngOnInit(): void {
+      this.loginForm = this.formBuilder.group({
+        
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(2)]]
+      });
     }
-    console.log("hahah")
+    // checkEmail(): boolean{
+    //   var index = this.mypassword[0].name;
+    //   console.log(index);
+    //   return true;
+    // }
+    userCheck(): boolean {
+      let found = this.mypassword.some((e: { email: any; password: any; }) => 
+        e.email === this.loginForm.value.email && e.password === this.loginForm.value.password);
+      return found;
+    }
+    onSubmit() {
+      // console.log(this.loginForm.valid);
+      // console.log(this.mypassword)
+      // console.log(this.mypassword[0]?.email?.includes(this.loginForm.value.email))
+      if(this.loginForm.valid && this.userCheck()) {
+        // console.log('Form submitted:', this.loginForm.value);
+        console.log(this.mypassword)
+        alert('form submitted')
+        this.router.navigate(['/contact'])
+
+
+        // Here you can add logic to send the form data to a server or perform other actions
+      } else {
+        console.log('Form is invalid. Please fill in all fields correctly.');
+      }
+    }
   }
-  toSignUpPage(){
-    this.router.navigate(['/signUp'])
-  }
-  toPasswordPage(){
-    this.router.navigate(['/password'])
-  }
-}
+  
+
