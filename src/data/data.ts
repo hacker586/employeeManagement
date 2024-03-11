@@ -133,7 +133,7 @@ const complaints =  [
         "hrAssign": "HR567",
         "subject": "Onboarding Process Feedback",
         "category": "Onboarding",
-        "status": "Open"
+        "status": "Solved"
       },
       {
         "complaintId": "C890123456",
@@ -141,7 +141,7 @@ const complaints =  [
         "hrAssign": "HR890",
         "subject": "Remote Work Equipment Request",
         "category": "Technology",
-        "status": "Closed"
+        "status": "Solved"
       },
       {
         "complaintId": "C234567890",
@@ -149,7 +149,7 @@ const complaints =  [
         "hrAssign": "HR123",
         "subject": "Training Effectiveness Concern",
         "category": "Learning and Development",
-        "status": "Open"
+        "status": "Pending"
       },
       {
         "complaintId": "C345678901",
@@ -157,7 +157,7 @@ const complaints =  [
         "hrAssign": "HR456",
         "subject": "Team Building Activity Proposal",
         "category": "Team Dynamics",
-        "status": "Open"
+        "status": "Pending"
       },
       {
         "complaintId": "C789123456",
@@ -165,7 +165,7 @@ const complaints =  [
         "hrAssign": "HR789",
         "subject": "Ethical Conduct Inquiry",
         "category": "Ethics",
-        "status": "Closed"
+        "status": "Pending"
       },
       {
         "complaintId": "C901234567",
@@ -173,7 +173,7 @@ const complaints =  [
         "hrAssign": "HR234",
         "subject": "Flexible Work Schedule Request",
         "category": "Employee Relations",
-        "status": "Open"
+        "status": "Pending"
       },
       {
         "complaintId": "C456789012",
@@ -181,7 +181,7 @@ const complaints =  [
         "hrAssign": "HR567",
         "subject": "Job Rotation Proposal",
         "category": "Career Development",
-        "status": "Open"
+        "status": "Pending"
       },
       {
         "complaintId": "C012345678",
@@ -189,7 +189,7 @@ const complaints =  [
         "hrAssign": "HR890",
         "subject": "Employee Recognition Program Request",
         "category": "Employee Engagement",
-        "status": "Closed"
+        "status": "Pending"
       },
       {
         "complaintId": "C890123456",
@@ -197,7 +197,7 @@ const complaints =  [
         "hrAssign": "HR123",
         "subject": "Disciplinary Action Appeal",
         "category": "Employee Relations",
-        "status": "Open"
+        "status": "Pending"
       },
       {
         "complaintId": "C234567890",
@@ -205,7 +205,7 @@ const complaints =  [
         "hrAssign": "HR456",
         "subject": "Diversity Training Feedback",
         "category": "Diversity and Inclusion",
-        "status": "Closed"
+        "status": "Pending"
       },
       {
         "complaintId": "C345678901",
@@ -213,7 +213,7 @@ const complaints =  [
         "hrAssign": "HR789",
         "subject": "Conflict Resolution Request",
         "category": "Employee Relations",
-        "status": "Open"
+        "status": "Pending"
       }
 ]
 export default complaints;
