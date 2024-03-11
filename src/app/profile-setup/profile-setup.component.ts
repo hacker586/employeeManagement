@@ -43,7 +43,8 @@ export class ProfileSetupComponent {
       profileAadharNum:[100000000000,[Validators.required,Validators.pattern("[0-9 ]{12}")]],
       profileVoterId:['ABC1234567',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
       profileGender:['Male',Validators.required],
-      profileFamily:['']},{ validators: imageRequiredValidator });
+      profileFamily:[''],
+      profileCreateTime: ['']},{ validators: imageRequiredValidator });
   }
 
   onImageChange(event: any): void {
@@ -66,10 +67,35 @@ export class ProfileSetupComponent {
     this.profileForm.get('profileGender')?.setValue(gender);
   }
 
+  getFormattedDate(date: Date): string {
+    const day = date.getDate();
+    const monthNames = [
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August',
+      'September', 'October', 'November', 'December'
+    ];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+  
+    return `${this.getOrdinalSuffix(day)} ${month} ${year}`;
+  }
+  
+  getOrdinalSuffix(n: number): string {
+    const suffixes = ['th', 'st', 'nd', 'rd'];
+    const v = n % 100;
+    return n + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
+  }
+
   onSubmit(){
     if(localStorage.getItem('userProfileData')){
       this.formData= JSON.parse(localStorage.getItem('userProfileData') || '[]');
     }
+
+    // console.log("Date Now",  this.getFormattedDate(new Date()));
+    this.profileForm.patchValue({
+      profileCreateTime: this.getFormattedDate(new Date()),
+    });
+
     // console.log("fresh local storage",localStorage.getItem('userProfileData'));
     this.formData[this.profileForm.get('profileAadharNum')?.value]=this.profileForm.value;
     localStorage.setItem('userProfileData', JSON.stringify(this.formData));
