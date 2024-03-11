@@ -3,7 +3,7 @@
         
         <br><label>
             Enter Full Name:-
-            <input type=" text " placeholder=" Enter Full Name " formControlName="familyFullName"> 
+            <input type=" text " placeholder=" John Aaron Smith " formControlName="familyFullName"> 
             <div *ngIf="familyForm.get('familyFullName')?.invalid && familyForm.get('familyFullName')?.touched">
                 <ng-container *ngIf="familyForm.get('familyFullName')?.errors?.['required']">
                     Please Enter your Full Name.
@@ -12,7 +12,7 @@
         </label>
         <br><label>
             Enter Mobile Number:-
-            <input type="number" placeholder=" Enter Mobile Number " formControlName="familyMobNumber">
+            <input type="number" placeholder=" 77xxxxxx01 " formControlName="familyMobNumber">
             <div *ngIf="familyForm.get('familyMobNumber')?.invalid && familyForm.get('familyMobNumber')?.touched">
                 <ng-container *ngIf="familyForm.get('familyMobNumber')?.errors?.['required']">
                     Please Enter your Mobile Number.
@@ -33,7 +33,7 @@
         </label>
         <br><label>
             Enter Aadhar Card Number:-
-            <input type="number" placeholder=" Enter Adhar Card Number" formControlName="familyAadharNum">
+            <input type="number" placeholder=" 20xxxxxxxx12" formControlName="familyAadharNum">
             <div *ngIf="familyForm.get('familyAadharNum')?.invalid && familyForm.get('familyAadharNum')?.touched">
                 <ng-container *ngIf="familyForm.get('familyAadharNum')?.errors?.['required']">
                     Please Enter your Aadhar Number.
@@ -45,7 +45,7 @@
         </label>
         <br><label>
             Enter Voter ID Number:-
-            <input type="text" placeholder=" Enter Voter ID " formControlName="familyVoterId">
+            <input type="text" placeholder=" ABC12xxxxx " formControlName="familyVoterId">
             <div *ngIf="familyForm.get('familyVoterId')?.invalid && familyForm.get('familyVoterId')?.touched">
                 <ng-container *ngIf="familyForm.get('familyVoterId')?.errors?.['required']">
                     Please Enter your Voter ID.

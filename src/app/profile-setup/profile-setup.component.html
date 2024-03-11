@@ -16,7 +16,7 @@
             
             <br><label>
                 Enter Full Name:-
-                <input type=" text " placeholder=" Enter Full Name " formControlName="profileFullName"> 
+                <input type=" text " placeholder=" Jane Elizabeth Smith " formControlName="profileFullName"> 
                 <div *ngIf="profileForm.get('profileFullName')?.invalid && profileForm.get('profileFullName')?.touched">
                     <ng-container *ngIf="profileForm.get('profileFullName')?.errors?.['required']">
                         Please Enter your Full Name.
@@ -25,7 +25,7 @@
             </label>
             <br><label>
                 Enter Mobile Number:-
-                <input type="number" placeholder=" Enter Mobile Number " formControlName="profileMobNumber">
+                <input type="text" placeholder=" 70xxxxxx21 " formControlName="profileMobNumber">
                 <div *ngIf="profileForm.get('profileMobNumber')?.invalid && profileForm.get('profileMobNumber')?.touched">
                     <ng-container *ngIf="profileForm.get('profileMobNumber')?.errors?.['required']">
                         Please Enter your Mobile Number.
@@ -37,7 +37,7 @@
             </label>
             <br><label>
                 Enter Email Address:-
-                <input type="text" placeholder=" Enter Email Address " formControlName="profileEmailAdd">
+                <input type="text" placeholder=" janesmith@gmail.com " formControlName="profileEmailAdd">
                 <div *ngIf="profileForm.get('profileEmailAdd')?.invalid && profileForm.get('profileEmailAdd')?.touched">
                     <ng-container *ngIf="profileForm.get('profileEmailAdd')?.errors?.['required']">
                         Please Enter your Email Address.
@@ -58,7 +58,7 @@
             </label>
             <br><label>
                 Enter PIN Code:-
-                <input type="number" placeholder=" Enter PIN Code" formControlName="profilePinCode">
+                <input type="number" placeholder=" 40xxx1" formControlName="profilePinCode">
                 <div *ngIf="profileForm.get('profilePinCode')?.invalid && profileForm.get('profilePinCode')?.touched">
                     <ng-container *ngIf="profileForm.get('profilePinCode')?.errors?.['required']">
                         Please Enter your PIN Code.
@@ -70,7 +70,7 @@
             </label>
             <br><label>
                 Enter Aadhar Card Number:-
-                <input type="number" placeholder=" Enter Adhar Card Number" formControlName="profileAadharNum">
+                <input type="number" placeholder=" 23xxxxxxxx90" formControlName="profileAadharNum">
                 <div *ngIf="profileForm.get('profileAadharNum')?.invalid && profileForm.get('profileAadharNum')?.touched">
                     <ng-container *ngIf="profileForm.get('profileAadharNum')?.errors?.['required']">
                         Please Enter your Aadhar Number.
@@ -82,7 +82,7 @@
             </label>
             <br><label>
                 Enter Voter ID Number:-
-                <input type="text" placeholder=" Enter Voter ID " formControlName="profileVoterId">
+                <input type="text" placeholder=" ABC12xxxxx " formControlName="profileVoterId">
                 <div *ngIf="profileForm.get('profileVoterId')?.invalid && profileForm.get('profileVoterId')?.touched">
                     <ng-container *ngIf="profileForm.get('profileVoterId')?.errors?.['required']">
                         Please Enter your Voter ID.
