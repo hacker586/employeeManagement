@@ -1,4 +1,3 @@
-<p>family-setup works!</p>
 <div>
     <form [formGroup]="familyForm" (ngSubmit)="onFamilySubmit()">        
         
@@ -69,7 +68,7 @@
         </label>
         
         
-        <br><button type="submit" [disabled]="familyForm.invalid" >Submit Form</button>
-        <br><button type="button" (click)="noFamily()">Go to main page</button>
+        <br><button type="submit" [disabled]="familyForm.invalid" >Add Family</button>
+        &nbsp;<button type="button" (click)="noFamily()">Go to main page</button>
     </form>
 </div>

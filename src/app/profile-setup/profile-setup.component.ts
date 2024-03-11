@@ -36,7 +36,7 @@ export class ProfileSetupComponent {
     return this.fb.group({
       profilePhoto:['',[Validators.required,imageValidator]],
       profileFullName:['Ishan Patil',Validators.required],
-      profileMobNumber:['7292012327',[Validators.required,Validators.pattern("[0-9 ]{10}")]],
+      profileMobNumber:[7292012327,[Validators.required,Validators.pattern("[0-9 ]{10}")]],
       profileEmailAdd:['john.smith@gmail.com',[Validators.required,Validators.pattern(/^[\w-]+(\.[\w-]+)*@(gmail\.com|outlook\.com)$/)]],
       profileFullAdd:['home',Validators.required],
       profilePinCode:[100000,[Validators.required,Validators.pattern("[0-9 ]{6}")]],
