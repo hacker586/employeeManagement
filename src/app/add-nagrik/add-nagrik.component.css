@@ -1,0 +1,9 @@
+.table{
+    height: 300px;
+}
+
+.head{
+   margin-top: 2%;
+   color: rgb(255, 165, 0);
+   font-weight: bolder;
+}
