@@ -33,7 +33,7 @@ export class AddNagrikComponent implements OnInit {
       },{ 
         prop: 'subject', 
         name: 'subject' ,
-        width: 300
+       
       },{
         prop: 'category',
         name: 'category',
