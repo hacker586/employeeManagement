@@ -42,6 +42,7 @@ export class AddJanSevakComponent {
       voterId: "",
       mobileNo:"",
     })
+    alert("HR added successfully!!!")
   }
 
 }

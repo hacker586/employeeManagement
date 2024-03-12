@@ -1,4 +1,6 @@
-<p>Name, number, email address, aadhaar, gender, accept btn, if reject enter reason submit button</p>
+<!-- <p>Name, number, email address, aadhaar, gender, accept btn, if reject enter reason submit button</p> -->
+<h1>Pending Requests</h1>
+
 <ngx-datatable
 class="material"
 [rows]="newJoinees"
@@ -9,6 +11,12 @@ class="material"
 [rowHeight]="'auto'"
   >
   </ngx-datatable>
+  <ng-template #familyButton let-row="row">
+    <button (click)="onFamily(row.profileFamily)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Family Details
+    </button>
+  </ng-template>
+
   <ng-template #acceptButton let-row="row">
     <button (click)="onAccept()" class="btn btn-success">
       Accept
@@ -16,11 +24,27 @@ class="material"
   </ng-template>
 
   <ng-template #declineButton let-row="row">
-    <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <button (click)="onDecline(row)" class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Decline
       </button>
   </ng-template>
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<h1>Rejected Applications</h1>
+  <ngx-datatable
+class="material"
+[rows]="rejectedArr"
+[columns]="rejectedColumns"
+[headerHeight]="50"
+[footerHeight]="50"
+[rowHeight]="'auto'"
+  >
+  </ngx-datatable>
+  <ng-template #declineButton let-row="row">
+    <button class="btn btn-danger" type="button">
+        Delete
+      </button>
+  </ng-template>
+  
+  <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasExampleLabel">Reason</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -29,6 +53,34 @@ class="material"
       <div>
         <h3>Mention reason: </h3>
         <textarea placeholder="Enter here" name="" id="" cols="30" rows="10"></textarea>
+        <button class="btn btn-danger" >Confirm Decline</button>
+      </div>
+    </div>
+  </div> -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Family Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ngx-datatable
+          #datatable
+    class="custom-datatable table "
+    [rows]="newjoineesFamilyArr"
+    [columns]="newJoineesFamilyColumn"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+          >
+
+          </ngx-datatable>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
       </div>
     </div>
   </div>
