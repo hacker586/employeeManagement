@@ -28,6 +28,7 @@ export const routes: Routes = [
     {path:'profile',component:ProfileComponent},
     {path:'nagrikHome',component:NagrikHomeComponent},
     {path:'nagrikComplaint',component:NagrikComplaintComponent},
+    {path:'nagrikComplaint/:section',component:NagrikComplaintComponent},
     {path:'nagrikAnnouncements',component:NagrikAnnouncementsComponent},
     {path:'nagrikViewJansevak',component:NagrikViewJansevakComponent},
     {path:'nagrikProfileView',component:NagrikProfileViewComponent},
