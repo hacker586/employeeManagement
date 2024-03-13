@@ -6,15 +6,28 @@
     <div class="formright mb-3">
       <form [formGroup]="AddJansevakForm" (ngSubmit)="onSubmit()" class="row g-3">
         <div class="col-md-6">
-          <label for="inputname" class="form-label" id="lt">Full Name</label>
+          <label for="inputname" class="form-label" id="lt">Full Name<span style="color: red;">*</span></label>
           <input formControlName="name" type="text" class="form-control" placeholder="Enter Full Name" id="input">
+          <div *ngIf="AddJansevakForm.get('name')?.invalid && AddJansevakForm.get('name')?.touched">
+            <ng-container *ngIf="AddJansevakForm.get('name')?.errors?.['required']">
+              <p style="font-size: small; color: red;">Please Enter your Full Name.</p>
+            </ng-container>
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
+          <label for="inputEmail4" class="form-label">Email<span style="color: red;">*</span></label>
           <input formControlName="email" type="email" class="form-control" placeholder="Enter Email" id="input">
+          <div *ngIf="AddJansevakForm.get('email')?.invalid && AddJansevakForm.get('email')?.touched">
+            <ng-container *ngIf="AddJansevakForm.get('email')?.errors?.['required']">
+              <p style="font-size: small; color: red;">Please Enter your Email Address.</p>
+            </ng-container>
+            <ng-container *ngIf="AddJansevakForm.get('email')?.errors?.['pattern']">
+              <p style="font-size: small; color: red;">Please Enter a valid Email Address.</p>
+            </ng-container>
+          </div>
         </div>
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label mb-3 ">Gender</label><br>
+          <label for="inputEmail4" class="form-label mb-3 ">Gender<span style="color: red;">*</span></label><br>
           <div class="form-check form-check-inline">
             <input formControlName="gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
             <label class="form-check-label" for="inlineRadio1">Male</label>
@@ -23,36 +36,80 @@
             <input formControlName="gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
             <label class="form-check-label" for="inlineRadio2">Female</label>
           </div>
+          <div *ngIf="AddJansevakForm.get('gender')?.invalid && AddJansevakForm.get('gender')?.touched">
+            <ng-container *ngIf="AddJansevakForm.get('gender')?.errors?.['required']">
+              <p style="font-size: small; color: red;"> Please select a gender.</p>
+            </ng-container>
+          </div>
         </div>
         <div class="col-md-6">
           <div class="col-md-6">
-            <label for="inputmob" class="form-label">Phone No</label>
-            <input formControlName="mobileNo" type="number" placeholder="Enter Phone No" class="form-control"
+            <label for="inputmob" class="form-label">Phone No<span style="color: red;">*</span></label>
+            <input formControlName="mobileNo" type="text" maxlength="10" placeholder="Enter Phone No" class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'')"
               id="input">
+            <div *ngIf="AddJansevakForm.get('mobileNo')?.invalid && AddJansevakForm.get('mobileNo')?.touched">
+              <ng-container *ngIf="AddJansevakForm.get('mobileNo')?.errors?.['required']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter your Mobile Number.</p>
+              </ng-container>
+              <ng-container *ngIf="AddJansevakForm.get('mobileNo')?.errors?.['pattern']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter a 10 Digit Mobile Number.</p>
+              </ng-container>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="col-md-6">
-            <label for="inputward" class="form-label">Age</label>
-            <input type="number" formControlName="age" placeholder="Enter Age" class="form-control" id="input">
+            <label for="inputward" class="form-label">Age<span style="color: red;">*</span></label>
+            <input type="text" maxlength="2" formControlName="age" placeholder="Enter Age" class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'')" id="input">
+            <div *ngIf="AddJansevakForm.get('age')?.invalid && AddJansevakForm.get('age')?.touched">
+              <ng-container *ngIf="AddJansevakForm.get('age')?.errors?.['required']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter Age.</p>
+              </ng-container>
+              <ng-container *ngIf="AddJansevakForm.get('age')?.errors?.['pattern']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter valid Age.</p>
+              </ng-container>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="col-md-6">
-            <label for="inputaddress" class="form-label">Address</label>
+            <label for="inputaddress" class="form-label">Address<span style="color: red;">*</span></label>
             <input type="text" formControlName="address" placeholder="Enter Address" class="form-control" id="input">
+            <div *ngIf="AddJansevakForm.get('address')?.invalid && AddJansevakForm.get('address')?.touched">
+              <ng-container *ngIf="AddJansevakForm.get('address')?.errors?.['required']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter your Full Address.</p>
+              </ng-container>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="col-md-6">
-            <label for="inputadhar" class="form-label">Adhar No</label>
-            <input type="number" formControlName="aadhaar" placeholder="Enter Adhar No" class="form-control" id="input">
+            <label for="inputadhar" class="form-label">Adhar No<span style="color: red;">*</span></label>
+            <input type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'')" maxlength="12" formControlName="aadhaar" placeholder="Enter Adhar No" class="form-control" id="input">
+            <div *ngIf="AddJansevakForm.get('aadhaar')?.invalid && AddJansevakForm.get('aadhaar')?.touched">
+              <ng-container *ngIf="AddJansevakForm.get('aadhaar')?.errors?.['required']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter your Aadhaar Number.</p>
+              </ng-container>
+              <ng-container *ngIf="AddJansevakForm.get('aadhaar')?.errors?.['pattern']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter a 12 Digit Aadhaar Number.</p>
+              </ng-container>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="col-md-6">
-            <label for="inputvoter" class="form-label">Voter ID</label>
-            <input type="text" formControlName="voterId" placeholder="Enter Voter ID" class="form-control" id="input">
+            <label for="inputvoter" class="form-label">Voter ID<span style="color: red;">*</span><span style="margin-left: 2px;"><i data-bs-toggle="tooltip" data-bs-placement="right"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Voter ID format must be 'ABCxxxxxxx'" class="bi bi-info-circle"></i></span></label>
+            <input type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'')" maxlength="10" formControlName="voterId" placeholder="Enter Voter ID" class="form-control" id="input">
+            <div *ngIf="AddJansevakForm.get('voterId')?.invalid && AddJansevakForm.get('voterId')?.touched">
+              <ng-container *ngIf="AddJansevakForm.get('voterId')?.errors?.['required']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter your Voter ID.</p>
+              </ng-container>
+              <ng-container *ngIf="AddJansevakForm.get('voterId')?.errors?.['pattern']">
+                <p style="font-size: small; color: red; white-space: nowrap;">Please Enter a valid Voter ID.</p>
+              </ng-container>
+            </div>
           </div>
         </div>
         <button [disabled]="AddJansevakForm.invalid" class="btn" type="submit" id="submitbutton">Submit</button>
@@ -65,3 +122,8 @@
   </div>
 
 </div>
+
+
+<span style="margin-left: 2px;"><i data-bs-toggle="tooltip" data-bs-placement="right"
+  data-bs-custom-class="custom-tooltip"
+  data-bs-title="Voter ID format must be 'ABCxxxxxxx'" class="bi bi-info-circle"></i></span>

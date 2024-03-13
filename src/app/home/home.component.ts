@@ -14,6 +14,7 @@ import { AddProfileComponent } from '../add-profile/add-profile.component';
 
 import { Router } from '@angular/router';
 import { ViewJansevakComponent } from '../view-jansevak/view-jansevak.component';
+// import { ViewJansevakComponent } from '../view-jansevak/view-jansevak.component';
 
 @Component({
   selector: 'app-home',
