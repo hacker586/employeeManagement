@@ -35,14 +35,14 @@ export class ProfileSetupComponent {
   createProfileForm(): FormGroup{
     return this.fb.group({
       profilePhoto:['',[Validators.required,imageValidator]],
-      profileFullName:['Ishan Patil',Validators.required],
-      profileMobNumber:[7292012327,[Validators.required,Validators.pattern("[0-9 ]{10}")]],
-      profileEmailAdd:['john.smith@gmail.com',[Validators.required,Validators.pattern(/^[\w-]+(\.[\w-]+)*@(gmail\.com|outlook\.com)$/)]],
-      profileFullAdd:['home',Validators.required],
-      profilePinCode:[100000,[Validators.required,Validators.pattern("[0-9 ]{6}")]],
-      profileAadharNum:[100000000000,[Validators.required,Validators.pattern("[0-9 ]{12}")]],
-      profileVoterId:['ABC1234567',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
-      profileGender:['Male',Validators.required],
+      profileFullName:['',Validators.required],
+      profileMobNumber:['',[Validators.required,Validators.pattern("[0-9 ]{10}")]],
+      profileEmailAdd:['',[Validators.required,Validators.pattern(/^[\w-]+(\.[\w-]+)*@(gmail\.com|outlook\.com)$/)]],
+      profileFullAdd:['',Validators.required],
+      profilePinCode:['',[Validators.required,Validators.pattern("[0-9 ]{6}")]],
+      profileAadharNum:['',[Validators.required,Validators.pattern("[0-9 ]{12}")]],
+      profileVoterId:['',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
+      profileGender:['',Validators.required],
       profileFamily:[''],
       profileCreateTime: ['']},{ validators: imageRequiredValidator });
   }
@@ -87,6 +87,7 @@ export class ProfileSetupComponent {
   }
 
   onSubmit(){
+    console.log("working")
     if(localStorage.getItem('userProfileData')){
       this.formData= JSON.parse(localStorage.getItem('userProfileData') || '[]');
     }
@@ -98,7 +99,10 @@ export class ProfileSetupComponent {
 
     // console.log("fresh local storage",localStorage.getItem('userProfileData'));
     this.formData[this.profileForm.get('profileAadharNum')?.value]=this.profileForm.value;
+    console.log("working2")
     localStorage.setItem('userProfileData', JSON.stringify(this.formData));
+    console.log("working3")
+
     console.log("updated local storage",localStorage.getItem('userProfileData'));
 
     // console.log(" Form in JSON Format ",this.profileForm.value);
