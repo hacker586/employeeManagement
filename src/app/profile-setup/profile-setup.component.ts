@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { RouterLink, RouterOutlet, Router} from '@angular/router';
+import Tooltip from 'bootstrap/js/dist/tooltip';
 
 @Component({
   selector: 'app-profile-setup',
@@ -28,7 +29,7 @@ export class ProfileSetupComponent {
   }
 
   ngOnInit(){
-    // console.log("Form Status= ",this.profileForm.invalid);
+        // console.log("Form Status= ",this.profileForm.invalid);
 
   }
 

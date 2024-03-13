@@ -81,7 +81,7 @@
                     <div class="col-md-6">
                         <div class="col-md-6">
                             <label for="inputmob" class="form-label">Phone No<span style="color: red;">*</span></label>
-                            <input formControlName="profileMobNumber" type="text" placeholder="Enter Phone No" oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                            <input formControlName="profileMobNumber" maxlength="10" type="text" placeholder="Enter Phone No" oninput="this.value=this.value.replace(/[^0-9]/g,'')"
                                 class="form-control" id="input">
                             <div
                                 *ngIf="profileForm.get('profileMobNumber')?.invalid && profileForm.get('profileMobNumber')?.touched">
@@ -144,7 +144,7 @@
                             <label for="inputvoter" class="form-label">Voter ID<span style="color: red;">*</span><span style="margin-left: 2px;"><i data-bs-toggle="tooltip" data-bs-placement="right"
                                 data-bs-custom-class="custom-tooltip"
                                 data-bs-title="Voter ID format must be 'ABCxxxxxxx'" class="bi bi-info-circle"></i></span></label>
-                            <input type="text" formControlName="profileVoterId" placeholder="Enter Voter ID"
+                            <input type="text" formControlName="profileVoterId" placeholder="Enter Voter ID" maxlength="10"
                                 class="form-control" id="input" >
                             <div
                                 *ngIf="profileForm.get('profileVoterId')?.invalid && profileForm.get('profileVoterId')?.touched">
