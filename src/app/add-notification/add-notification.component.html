@@ -3,7 +3,7 @@
   <div class="card shadow" style="width: 65rem;">
     <ngx-datatable
   class="material"
-  [rows]="newJoinees"
+  [rows]="userProfileData"
   [columns]="newJoineesColumns"
   [headerHeight]="50"
   [footerHeight]="10"
@@ -33,7 +33,7 @@
     <h1>Rejected Applications</h1>
   <ngx-datatable
 class="material"
-[rows]="rejectedArr"
+[rows]="rejected"
 [columns]="rejectedColumns"
 [headerHeight]="50"
 [footerHeight]="30"
@@ -41,7 +41,7 @@ class="material"
 [scrollbarH]="true"
   >
   </ngx-datatable>
-    </div>
+    
   <ng-template #declineButton let-row="row">
     <button class="btn btn-danger" type="button">
         Delete
