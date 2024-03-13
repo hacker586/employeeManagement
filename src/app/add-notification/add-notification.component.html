@@ -1,12 +1,14 @@
-  <p>Name, number, email address, aadhaar, gender, accept btn, if reject enter reason submit button</p>
-  <div class="card shadow">
+  <!-- <p>Name, number, email address, aadhaar, gender, accept btn, if reject enter reason submit button</p> -->
+  <h2 class="title alert alert-warning">Employees Details</h2>
+  <div class="card shadow" style="width: 65rem;">
     <ngx-datatable
   class="material"
-  [rows]="userProfileData"
+  [rows]="newJoinees"
   [columns]="newJoineesColumns"
   [headerHeight]="50"
-  [footerHeight]="50"
+  [footerHeight]="10"
   [rowHeight]="'auto'"
+  [scrollbarH]="true"
     >
     </ngx-datatable>
   </div>
@@ -24,20 +26,22 @@
     </ng-template>
 
     <ng-template #declineButton let-row="row">
-      <button (click)="onDecline(row)" class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <button (click)="onDecline(row)" class="btn btn-danger" type="button" >
           Decline
         </button>
     </ng-template>
     <h1>Rejected Applications</h1>
   <ngx-datatable
 class="material"
-[rows]="rejected"
+[rows]="rejectedArr"
 [columns]="rejectedColumns"
 [headerHeight]="50"
-[footerHeight]="50"
+[footerHeight]="30"
 [rowHeight]="'auto'"
+[scrollbarH]="true"
   >
   </ngx-datatable>
+    </div>
   <ng-template #declineButton let-row="row">
     <button class="btn btn-danger" type="button">
         Delete
