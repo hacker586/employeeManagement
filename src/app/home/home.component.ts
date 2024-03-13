@@ -11,7 +11,9 @@ import { AddAnnouncementComponent } from '../add-announcement/add-announcement.c
 import { AddNotificationComponent } from '../add-notification/add-notification.component';
 import { AddNagrikComponent } from '../add-nagrik/add-nagrik.component';
 import { AddProfileComponent } from '../add-profile/add-profile.component';
+
 import { Router } from '@angular/router';
+import { ViewJansevakComponent } from '../view-jansevak/view-jansevak.component';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +27,8 @@ import { Router } from '@angular/router';
     AddAnnouncementComponent,
     AddNotificationComponent,
     AddNagrikComponent,
-    AddProfileComponent
+    AddProfileComponent,
+    ViewJansevakComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -70,6 +73,9 @@ export class HomeComponent implements OnInit{
   showProfile(){
     this.componentName = "profile"
     // console.log("Haha6")
+  }
+  showViewJansevak(){
+    this.componentName = "viewJansevaks"
   }
 
   toProfileSetup(){

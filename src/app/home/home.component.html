@@ -22,9 +22,17 @@
         View Notifications
       </button>
       <button class="nav-link" id="pills-view-Nagrik-tab" data-bs-toggle="pill" data-bs-target="#pills-view-Nagrik"
-          type="button" role="tab" aria-controls="pills-view-Nagrik" aria-selected="false" (click)="showViewNagrik()">View Nagrik</button>
+          type="button" role="tab" aria-controls="pills-view-Nagrik" aria-selected="false" (click)="showViewNagrik()">
+          View Nagrik
+        </button>
       <button class="nav-link" id="pills-Profile-tab" data-bs-toggle="pill" data-bs-target="#pills-Profile" type="button"
-          role="tab" aria-controls="pills-Profile" aria-selected="false" (click)="showProfile()">Profile</button>
+          role="tab" aria-controls="pills-Profile" aria-selected="false" (click)="showProfile()">
+          Profile
+        </button>
+        <button class="nav-link" id="pills-Profile-tab" data-bs-toggle="pill" data-bs-target="#pills-Profile"  type="button" role="tab" aria-controls="pills-Add-Notifications" aria-selected="false" (click)="showViewJansevak()">
+          View Jansevaks
+        </button>
+
   </div>
 
       <div style="max-width: 85%;" *ngIf="componentName == 'dashboard'">
@@ -49,6 +57,10 @@
 
       <div *ngIf="componentName == 'profile'" >
         <app-add-profile></app-add-profile>
+      </div>
+
+      <div *ngIf="componentName == 'viewJansevaks'" >
+        <app-view-jansevak></app-view-jansevak>
       </div>
      
   </div>
