@@ -1,6 +1,6 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, viewChildren } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule} from '@angular/common';
 @Component({
   selector: 'app-add-notification',
   standalone: true,
@@ -25,7 +25,6 @@ familyButton!: TemplateRef<any>;
 acceptButton!: TemplateRef<any>;
 @ViewChild('declineButton', {static: true})
 declineButton!: TemplateRef<any>;
-
   constructor() {}
 
   ngOnInit() {
@@ -124,13 +123,8 @@ declineButton!: TemplateRef<any>;
       {
         prop: 'profileVoterId',
         name: 'VoterId'
-      },
-      {
-        // prop: 'decline',
-        name: 'Decline',
-        cellTemplate: this.declineButton
       }
-    ];
+];
   }
   onAccept(){
     
