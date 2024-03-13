@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { RouterLink, Router, RouterOutlet} from '@angular/router';
+
+@Injectable({
+  providedIn: 'root',
+})
 
 @Component({
   selector: 'app-nagrik-home',
@@ -19,4 +23,7 @@ export class NagrikHomeComponent implements OnInit{
   ngOnInit(){
     if (this.router.url === '/nagrikHome') this.router.navigate(['/nagrikProfileView']);
   }
+
+  // Other Functions
+
 }

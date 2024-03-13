@@ -17,7 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

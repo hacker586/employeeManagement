@@ -1,0 +1,16 @@
+.card {
+    border-radius: 15px;
+    margin: 20px;
+  }
+  
+  .card-header {
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .profile-photo img {
+    width: 150px;
+  }
+  
+  .profile-details p {
+    margin: 5px 0;
+  }

@@ -1,2 +1,7 @@
 <app-nagrik-home></app-nagrik-home>
-<p>nagrik-complaint works!</p>
+<div *ngIf="section === 'addComplaint'">
+    Add Complaint Section
+</div>
+<div *ngIf="section === 'viewComplaints'">
+  View Complaints Section
+</div>
