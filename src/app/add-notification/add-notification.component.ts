@@ -1,30 +1,24 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { JsonPipe } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-add-notification',
   standalone: true,
-  imports: [NgxDatatableModule],
+  imports: [CommonModule,NgxDatatableModule],
   templateUrl: './add-notification.component.html',
   styleUrls: ['./add-notification.component.css']
 })
 export class AddNotificationComponent implements OnInit {
-  newJoinees: any[] = Object.values( JSON.parse(localStorage.getItem("userProfileData")|| "{}"));
+  userProfileData: any[] = Object.values( JSON.parse(localStorage.getItem("userProfileData")|| "[]")); 
+  // newJoinees: any[] = Object.values( JSON.parse(localStorage.getItem("userProfileData")|| "[]"));
   // newJoineesArr: any[] = Object.values(this.newJoinees);
-  newjoineesFamilyArr = [];
   newJoineesColumns: any[] = [];
+  newjoineesFamilyArr = [];
   newJoineesFamilyColumn: any[] = [];
   rejected: any[] = [];
-  rejectedArr: any[] = [];
+  // rejectedArr: any[] = [];
   rejectedColumns: any[] = [];
 
-  //   tempData: any[]= [{
-    //     name:"sagar",
-//     number: 1122,
-//     email: "ahahha",
-//     aadhaar: 1122334455,
-//     gender: "M", 
-// }]
 @ViewChild('familyButton', {static: true})
 familyButton!: TemplateRef<any>;
 @ViewChild('acceptButton', {static: true})
@@ -35,11 +29,12 @@ declineButton!: TemplateRef<any>;
   constructor() {}
 
   ngOnInit() {
-    console.log("i AM here", this.newJoinees)
+    this.userProfileData = Object.values( JSON.parse(localStorage.getItem("userProfileData")|| "[]"));
+    console.log("i AM here", this.userProfileData)
     // this.newJoinees = JSON.parse(localStorage.getItem('newJoinees') || '[]');
-    this.newJoinees = Object.values( JSON.parse(localStorage.getItem("userProfileData")|| "{}"));
     // this.newJoineesArr = Object.values(this.newJoinees);
-    this.rejected = (JSON.parse(localStorage.getItem("rejected")|| "{}"));
+    this.rejected = (JSON.parse(localStorage.getItem("rejected")|| "[]"));
+    console.log("I am rejected",this.rejected);
     // this.rejectedArr = Object.values(this.rejected);
     this.newJoineesColumns = [
       {
@@ -142,18 +137,21 @@ declineButton!: TemplateRef<any>;
     
   }
   onDecline(row: any){
-    this.rejected.push(this.newJoinees.filter((e)=>e.profileAadharNum==row.profileAadharNum));
+    console.log("haha",row);
+    // this.rejected.push(this.newJoinees.filter((e)=>e.profileAadharNum==row.profileAadharNum));
+    this.rejected.push(row);
     // this.rejectedArr.push(Object.values(this.rejected));
-    localStorage.setItem("rejected", JSON.stringify( this.rejectedArr))
-    this.newJoinees = this.newJoinees.filter((e)=>e.profileAadharNum!=row.profileAadharNum);
+    localStorage.setItem("rejected", JSON.stringify( this.rejected))
+    this.userProfileData = Object.values(this.userProfileData).filter((e)=>e.profileAadharNum!=row.profileAadharNum);
     // this.newJoineesArr = Object.values(this.newJoinees);
-    localStorage.setItem("newJoinees", JSON.stringify( this.newJoinees))
+    console.log("I am after filter NJ", this.userProfileData)
+    localStorage.setItem("userProfileData", JSON.stringify( this.userProfileData))
     console.log("deleted!!!")
-    // location.reload();
+    location.reload();
   }
   onFamily(data: any) {
     this.newjoineesFamilyArr = Object.values(data);
-    // console.log(this.newjoineesFamilyArr);
+    console.log(this.newjoineesFamilyArr);
     this.newJoineesFamilyColumn=[
       {
         prop: "familyFullName",

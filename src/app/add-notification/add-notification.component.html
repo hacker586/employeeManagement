@@ -2,9 +2,8 @@
   <div class="card shadow">
     <ngx-datatable
   class="material"
-  [rows]="newJoinees"
+  [rows]="userProfileData"
   [columns]="newJoineesColumns"
-
   [headerHeight]="50"
   [footerHeight]="50"
   [rowHeight]="'auto'"
@@ -12,9 +11,10 @@
     </ngx-datatable>
   </div>
   <ng-template #familyButton let-row="row">
-    <button (click)="onFamily(row.profileFamily)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button *ngIf="row.profileFamily!='No family Added'" (click)="onFamily(row.profileFamily)" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Family Details
     </button>
+    <p *ngIf="row.profileFamily=='No family Added'">No Family Added</p>
   </ng-template>
 
     <ng-template #acceptButton let-row="row">
@@ -31,7 +31,7 @@
     <h1>Rejected Applications</h1>
   <ngx-datatable
 class="material"
-[rows]="rejectedArr"
+[rows]="rejected"
 [columns]="rejectedColumns"
 [headerHeight]="50"
 [footerHeight]="50"

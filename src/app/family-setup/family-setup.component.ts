@@ -44,8 +44,10 @@ export class FamilySetupComponent {
 
   noFamily(){
     let userProfile= JSON.parse(localStorage.getItem('userProfileData') || '[]');
-    userProfile[this.userAadhar].profileFamily="No family Added";
-    localStorage.setItem('userProfileData',JSON.stringify(userProfile));
+    if(!userProfile[this.userAadhar].profileFamily){
+      userProfile[this.userAadhar].profileFamily="No family Added";
+      localStorage.setItem('userProfileData',JSON.stringify(userProfile));
+    }
     console.log(" Local Storage(without Family) ",userProfile);
     this.router.navigate(['']);
   }
