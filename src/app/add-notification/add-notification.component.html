@@ -6,7 +6,7 @@
   [rows]="userProfileData"
   [columns]="newJoineesColumns"
   [headerHeight]="50"
-  [footerHeight]="10"
+  [footerHeight]="50"
   [rowHeight]="'auto'"
   [scrollbarH]="true"
     >
@@ -30,17 +30,19 @@
           Decline
         </button>
     </ng-template>
-    <h1>Rejected Applications</h1>
-  <ngx-datatable
+    <h2 class="title alert alert-warning" style="width: 35%;">Rejected Applications</h2>
+    <div class="card shadow" style="width: 65rem;">
+      <ngx-datatable
 class="material"
 [rows]="rejected"
 [columns]="rejectedColumns"
 [headerHeight]="50"
-[footerHeight]="30"
+[footerHeight]="50"
 [rowHeight]="'auto'"
 [scrollbarH]="true"
   >
   </ngx-datatable>
+    </div>
     
   <ng-template #declineButton let-row="row">
     <button class="btn btn-danger" type="button">
