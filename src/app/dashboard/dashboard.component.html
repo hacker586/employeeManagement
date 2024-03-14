@@ -10,7 +10,7 @@
                 </div>
                 <h5 class="card-title mb-3">Total Nagrik</h5>
             </div>
-            <h6 id="sub">{{data.length}}</h6>
+            <h6 id="sub">{{acceptedJoinees.length}}</h6>
         </button>
     </div>
     <div class="card shadow" style="width: 16rem;">
@@ -79,8 +79,8 @@
     <ngx-datatable
     #datatable
     class="custom-datatable table "
-    [rows]="data"
-    [columns]="columns1"
+    [rows]="acceptedJoinees"
+    [columns]="acceptedJoineesColumns"
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'"
@@ -95,7 +95,7 @@
     #datatable
     class="custom-datatable table"
     [rows]="jansevakArr"
-    [columns]="columns2"
+    [columns]="jansevakArrColumns"
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'"

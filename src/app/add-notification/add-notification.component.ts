@@ -15,8 +15,8 @@ export class AddNotificationComponent implements OnInit {
   newJoineesColumns: any[] = [];
   newjoineesFamilyArr = [];
   newJoineesFamilyColumn: any[] = [];
+  acceptedJoinees: any[] = [];
   rejected: any[] = [];
-  // rejectedArr: any[] = [];
   rejectedColumns: any[] = [];
 
 @ViewChild('familyButton', {static: true})
@@ -126,8 +126,13 @@ declineButton!: TemplateRef<any>;
       }
 ];
   }
-  onAccept(){
-    
+  onAccept(row : any){
+    console.log(row)
+    this.acceptedJoinees.push(row);
+    localStorage.setItem("acceptedJoinees", JSON.stringify(this.acceptedJoinees))
+    this.userProfileData = this.userProfileData.filter((e)=>e.profileAadharNum!=row.profileAadharNum)
+    localStorage.setItem("userProfileData", JSON.stringify( this.userProfileData))
+    location.reload();
     
   }
   onDecline(row: any){
@@ -141,7 +146,7 @@ declineButton!: TemplateRef<any>;
     console.log("I am after filter NJ", this.userProfileData)
     localStorage.setItem("userProfileData", JSON.stringify( this.userProfileData))
     console.log("deleted!!!")
-    location.reload();
+    // location.reload();
   }
   onFamily(data: any) {
     this.newjoineesFamilyArr = Object.values(data);

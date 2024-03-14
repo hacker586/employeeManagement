@@ -89,6 +89,7 @@ export class ProfileSetupComponent {
 
   onSubmit(){
     console.log("working")
+    // Iske wajahse wo aake bhi emtpy rahega local storage add nagrik ho jayega tab tu local storage uda de
     if(localStorage.getItem('userProfileData')){
       this.formData= JSON.parse(localStorage.getItem('userProfileData') || '[]');
     }

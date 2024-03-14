@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import data from "../../data/data";
+// import data from "../../data/data";
 // import janSevak from "../../data/janSevakList";
 import nagrik from "../../data/nagrik";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -14,49 +14,72 @@ import {Chart} from 'chart.js'
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  data = data;
+  acceptedJoinees = JSON.parse(localStorage.getItem("acceptedJoinees")|| "[]");
   jansevakArr = JSON.parse(localStorage.getItem("JansevakArr" )|| "{}");
   nagrik = nagrik;
-  columns1: any[] = []
-  columns2: any[] = []
+  acceptedJoineesColumns: any[] = []
+  jansevakArrColumns: any[] = []
   columns3: any[] = []
   bool: boolean = true;
-  
+//   profileAadharNum: "123456789012"
+// profileCreateTime: "14th March 2024"
+// profileEmailAdd: "a@gmail.com"
+// profileFamily: 
+// {
+// 123456789012: 
+// {
+// familyFullName: "Milind Patil", 
+// familyMobNumber: 7424434194, 
+// familyFullAdd: "not home",
+// familyFullName: "Milind Patil"
+// familyGender: "Male"
+// familyMobNumber: 7424434194
+// familyVoterId: "DEF1234567"
+// }
+// profileFullAdd: "234567"
+// profileFullName: "qwerty"
+// profileGender: "Male"
+// profileMobNumber: "1234567890"
+// profilePhoto: "C:\\fakepath\\Screenshot 2024-02-01 152920.png"
+// profilePinCode: "123456"
+// profileVoterId: "ASD1234567"
   
   // constructor(private chart: Chart){}
   ngOnInit(): void {
-    this.jansevakArr = JSON.parse(localStorage.getItem("JansevakArr")|| "{}");
+    this.jansevakArr = JSON.parse(localStorage.getItem("JansevakArr")|| "[]");
+    this.acceptedJoinees = JSON.parse(localStorage.getItem("acceptedJoinees")|| "[]")
     // console.log(typeof(this.jansevakArr))
     console.log("HII", this.jansevakArr)
     Chart.register(LinearScale,CategoryScale,BarController,BarElement,DoughnutController,ArcElement,Tooltip,Legend);
     this.bool = true;
-    this.columns1 = [
-      {
-        prop: 'complaintId',
-        name: 'complaintId'
-      },
-      {
-        prop: 'name',
-        name: 'name'
-      },
-      {
-        prop: 'hrAssign',
-        name: 'hrAssign'
-      },
-      {
-        prop: 'subject',
-        name: 'subject',
-      },
-      {
-        prop: 'category',
-        name: 'category',
-      },
-      {
-        prop: 'status',
-        name: 'status'
-      }
+    this.acceptedJoineesColumns = [
+     {
+      prop:"profileFullName",
+      name:"Name",
+     },{
+      prop:"profileMobNumber",
+      name:"Number",
+     },{
+      prop:"profileEmailAdd",
+      name:"Email",
+     },{
+      prop:"profileFullAdd",
+      name:"Address",
+     },{
+      prop:"profilePinCode",
+      name:"Pincode",
+     },{
+      prop:"profileAadharNum",
+      name:"Aadhaar",
+     },{
+      prop:"profileVoterId",
+      name:"Voter ID",
+     },{
+      prop:"profileGender",
+      name:"Gender",
+     },
     ];
-    this.columns2 = [
+    this.jansevakArrColumns = [
       {
         prop: 'name',
         name: 'name',
