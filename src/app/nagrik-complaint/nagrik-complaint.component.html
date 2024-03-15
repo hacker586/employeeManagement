@@ -1,6 +1,79 @@
 <app-nagrik-home></app-nagrik-home>
 <div *ngIf="section === 'addComplaint'">
     Add Complaint Section
+    <div class="nagrikform">
+      <div class="card shadow" style="width: 50rem;">
+          <h5 class="card-title mb-3" id="title">Employee Details</h5>
+          <form [formGroup]="createComplaint" (ngSubmit)="onAddComplaint()">
+            <div class="nagrikdetail d-grid gap-2 d-md-flex">
+              <div class="formright mb-3 row g-3">
+                  <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label mb-3 ">Complaint Category<span style="color: red;">*</span></label><br>
+                      <div class="form-check form-check-inline " *ngFor="let category of complaintsList.complaint_categories, index as i">
+                        <input formControlName="complaintCategory" class="form-check-input" type="radio"
+                        id="inlineRadio1" value="{{category.name}}">
+                        <label class="form-check-label" for="inlineRadio1">{{i+1}}. {{category.name}}</label>
+                    </div>
+                    <div
+                    *ngIf="createComplaint.get('complaintCategory')?.invalid && createComplaint.get('complaintCategory')?.touched">
+                    <ng-container *ngIf="createComplaint.get('complaintCategory')?.errors?.['required']">
+                        <p style="font-size: small; color: red;"> Please select a category.</p>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputname" class="form-label" id="lt">Complaint Subject<span style="color: red;">*</span></label>
+                <input formControlName="complaintSubject" type="text" class="form-control"
+                  placeholder="Enter Complaint Subject" id="input">
+                        <div
+                            *ngIf="createComplaint.get('complaintSubject')?.invalid && createComplaint.get('complaintSubject')?.touched">
+                            <ng-container *ngIf="createComplaint.get('complaintSubject')?.errors?.['required']">
+                                <p style="font-size: small; color: red;">Please Enter the subject.</p>
+                            </ng-container>
+                        </div>
+            </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Complaint Description<span style="color: red;">*</span></label>
+                        <textarea formControlName="complaintDescription" class="form-control" rows="5" 
+                            placeholder="Enter Complaint Description" id="input"></textarea>
+                        <div
+                            *ngIf="createComplaint.get('complaintDescription')?.invalid && createComplaint.get('complaintDescription')?.touched">
+                            <ng-container *ngIf="createComplaint.get('complaintDescription')?.errors?.['required']">
+                                <p style="font-size: small; color: red;">Please description.</p>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="formleft">
+                        <div class="card shadow mb-5" style="width: 15rem;">
+                            <h5 class="card-title" style="margin-left: 25%;">Add photo<span style="color: red;">*</span><span style="margin-left: 2px;"><i data-bs-toggle="tooltip" data-bs-placement="right"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Allowed types: jpg, jpeg, png, gif" class="bi bi-info-circle"></i></span></h5>
+                            <div class="photo" style="margin-left: 19%;">
+                                <div class="dot">
+                                    <h5 class="position-absolute start-50 translate-middle preview" *ngIf="!imageUrl">No Preview</h5>
+                                    <img *ngIf="imageUrl" [src]="imageUrl" alt="img"
+                                        style="height: 150px; width: 150px; border-radius: 50%;">
+                                </div>
+                            </div><br>
+                            <div class="in">
+                            <input  type="file" formControlName="complaintPhoto" (change)="onImageChange($event)"
+                                class="form-control input mb-3 fileinput" id="input2"
+                                aria-describedby="inputGroupFileAddon04" aria-label="Upload" >
+                                <div *ngIf="createComplaint.get('complaintPhoto')?.touched">
+                                    <div style="font-size: small; color: red; margin-top: -5%;" *ngIf="createComplaint.get('complaintPhoto')?.hasError('required')">Image is required.</div>
+                                    <div style="font-size: small; color: red; margin-top: -5%;" *ngIf="createComplaint.get('complaintPhoto')?.hasError('invalidFileType')">Invalid file type.
+                                        Allowed types: jpg, jpeg, png, gif.</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button [disabled]="createComplaint.invalid" class="btn" type="submit" id="submitbutton">Add Complaint</button>
+                </div>
+            </div>
+          </form>
+          </div>
+  </div>
 </div>
 <div *ngIf="section === 'viewComplaints'">
   View Complaints Section
