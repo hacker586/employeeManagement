@@ -46,7 +46,8 @@ export class NagrikComplaintComponent {
       complaintSubject:['Pagar badhao',Validators.required],
       complaintDescription:['Pagar is too loww',Validators.required],
       complaintAssignedHR:[''],
-      complaintCreateTime: ['']},  
+      complaintStatus:['Pending'],
+      complaintCreateTime: [ this.getFormattedDate(new Date())]},  
       { validators: imageRequiredValidator });
   }
 
@@ -65,6 +66,7 @@ export class NagrikComplaintComponent {
       this.imageUrl = null;
     }
   }
+  
 
   getFormattedDate(date: Date): string {
     const day = date.getDate();
@@ -90,6 +92,7 @@ export class NagrikComplaintComponent {
     console.log(this.createComplaint.value);
     this.allComplaints.push(this.createComplaint.value);
     console.log("All Complaints",this.allComplaints); 
+    // console.log("Date Now",  this.getFormattedDate(new Date()));
     this.createComplaint.patchValue({
       complaintPhoto:'',
       complaintCategory:'',
