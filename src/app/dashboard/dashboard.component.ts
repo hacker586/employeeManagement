@@ -15,11 +15,11 @@ import {Chart} from 'chart.js'
 })
 export class DashboardComponent implements OnInit {
   acceptedJoinees = JSON.parse(localStorage.getItem("acceptedJoinees")|| "[]");
-  jansevakArr = JSON.parse(localStorage.getItem("JansevakArr" )|| "{}");
-  nagrik = nagrik;
+  jansevakArr = JSON.parse(localStorage.getItem("JansevakArr" )|| "[]");
+  nagrik = JSON.parse(localStorage.getItem("allComplaints")|| '[]');
   acceptedJoineesColumns: any[] = []
   jansevakArrColumns: any[] = []
-  columns3: any[] = []
+  allComplaintsColumns: any[] = []
   bool: boolean = true;
 //   profileAadharNum: "123456789012"
 // profileCreateTime: "14th March 2024"
@@ -113,23 +113,37 @@ export class DashboardComponent implements OnInit {
         name: 'voterId',
       },
     ]
-    this.columns3 = [
+    this.allComplaintsColumns = [
       {
-        prop: 'id',
-        name: 'id'
+        prop: 'complaintInitial',
+        name: 'user Id'
       },
       {
-        prop: 'name',
-        name: 'name'
+        prop: 'complaintPhoto',
+        name: 'Profile Photo'
       },
       {
-        prop: 'age',
-        name: 'age'
+        prop: 'complaintCategory',
+        name: 'Category'
       },
       {
-        prop: "phone",
-        name: 'phone'
+        prop: 'complaintSubject',
+        name: 'Subject'
+      },
+      {
+        prop: "complaintDescription",
+        name: 'Description'
+      },{
+        prop: "complaintAssignedHR",
+        name: 'Assigned HR'
+      },{
+        prop: "complaintStatus",
+        name: 'status'
+      },{
+        prop:"complaintCreateTime",
+        name:"Date & Time"
       }
+
     ];
     const piec = document.getElementById('piechart') as HTMLCanvasElement;
     console.log("higraph", piec);
