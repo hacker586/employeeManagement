@@ -20,6 +20,7 @@ export class NagrikComplaintComponent {
   complaintsList=complaintsList;
   complaintSize= complaintsList.complaint_categories.length;
   allComplaints: any[]=[];
+  localComplaints:any[]=[];
 
   userAadhar=100000000000;
 
@@ -33,6 +34,8 @@ export class NagrikComplaintComponent {
     this.route.params.subscribe(params => {
       this.section = params['section'];
     });
+    this.localComplaints=JSON.parse(localStorage.getItem("allComplaints") || '[]');
+    console.log("local Complaints, ",this.localComplaints);
     // console.log("Load section, ",this.section);
     // console.log("Complaints, ",complaintsList.complaint_categories);
   }
@@ -47,6 +50,7 @@ export class NagrikComplaintComponent {
       complaintDescription:['Pagar is too loww',Validators.required],
       complaintAssignedHR:[''],
       complaintStatus:['Pending'],
+      complaintInitial:[this.userAadhar],
       complaintCreateTime: [ this.getFormattedDate(new Date())]},  
       { validators: imageRequiredValidator });
   }
