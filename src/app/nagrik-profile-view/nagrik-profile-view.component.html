@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
       <div class="profile-photo text-center">
-        <img [src]="nagrikFormData[userAadhar].profilePhoto" alt="Profile Photo" class="rounded-circle img-fluid">
+        <!-- <img [src]="nagrikFormData[userAadhar].profilePhoto" alt="Profile Photo" class="rounded-circle img-fluid"> -->
       </div>
       <div class="profile-details">
         <!-- Nagrik Details -->
@@ -16,39 +16,22 @@
         <p><strong>Aadhar Number:</strong> {{ nagrikFormData[userAadhar].profileAadharNum }}</p>
         <p><strong>Voter ID:</strong> {{ nagrikFormData[userAadhar].profileVoterId }}</p>
         <p><strong>Gender:</strong> {{ nagrikFormData[userAadhar].profileGender }}</p>
-        <!-- Family Details -->
-        <!-- {{familyMembers[0].familyAadharNum}} -->
-        <!-- {{familyMembersDetails[0].familyFullName}} -->
-        
         <div *ngIf="familySize > 0" class="mt-4">
-            <!-- <h5>Family Members</h5> -->
-            <div id="familyCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div *ngIf="familyMembersDetails">
-                      <h2>Family Members</h2>
-                      <div *ngFor="let familyMember of familyMembersDetails, index as i">
-                        <div> 
-                          <h1>{{i+1}}</h1>
-                          <p><strong>Name:</strong> {{ familyMember.familyFullName }}</p>
-                          <p><strong>Aadhar Number:</strong> {{ familyMember.familyAadharNum }}</p>
-                          <p><strong>Address:</strong> {{ familyMember.familyFullAdd }}</p>
-                          <p><strong>Mobile Number:</strong> {{ familyMember.familyMobNumber }}</p>
-                          <p><strong>Voter ID:</strong> {{ familyMember.familyVoterId }}</p>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-              <a class="carousel-control-prev" href="#familyCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#familyCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+          <div *ngIf="familyMembersDetails">
+              <h2>Family Members</h2>
+              <div *ngFor="let familyMember of familyMembersDetails, index as i">
+                <div> 
+                  {{i+1}}.
+                  <p><strong>Name:</strong> {{ familyMember.familyFullName }}</p>
+                  <p><strong>Aadhar Number:</strong> {{ familyMember.familyAadharNum }}</p>
+                  <p><strong>Address:</strong> {{ familyMember.familyFullAdd }}</p>
+                  <p><strong>Mobile Number:</strong> {{ familyMember.familyMobNumber }}</p>
+                  <p><strong>Voter ID:</strong> {{ familyMember.familyVoterId }}</p>
+                </div>
             </div>
         </div>
       </div>
     </div>
   </div>
-  
+
+

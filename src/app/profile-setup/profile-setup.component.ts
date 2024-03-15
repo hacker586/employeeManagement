@@ -36,14 +36,14 @@ export class ProfileSetupComponent {
   createProfileForm(): FormGroup{
     return this.fb.group({
       profilePhoto:['',[Validators.required,imageValidator]],
-      profileFullName:['',Validators.required],
-      profileMobNumber:['',[Validators.required,Validators.pattern("[0-9 ]{10}")]],
-      profileEmailAdd:['',[Validators.required,Validators.pattern(/^[\w-]+(\.[\w-]+)*@(gmail\.com|outlook\.com)$/)]],
-      profileFullAdd:['',Validators.required],
-      profilePinCode:['',[Validators.required,Validators.pattern("[0-9 ]{6}")]],
-      profileAadharNum:['',[Validators.required,Validators.pattern("[0-9 ]{12}")]],
-      profileVoterId:['',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
-      profileGender:['',Validators.required],
+      profileFullName:['Ishan Milind Patil',Validators.required],
+      profileMobNumber:['7798014347',[Validators.required,Validators.pattern("[0-9 ]{10}")]],
+      profileEmailAdd:['ishan@gmail.com',[Validators.required,Validators.pattern(/^[\w-]+(\.[\w-]+)*@(gmail\.com|outlook\.com)$/)]],
+      profileFullAdd:['home',Validators.required],
+      profilePinCode:['123456',[Validators.required,Validators.pattern("[0-9 ]{6}")]],
+      profileAadharNum:['100000000000',[Validators.required,Validators.pattern("[0-9 ]{12}")]],
+      profileVoterId:['ABC1234567',[Validators.required,Validators.pattern(/^[A-Z]{3}\d{7}$/)]],
+      profileGender:['Male',Validators.required],
       profileFamily:[''],
       profileCreateTime: ['']},{ validators: imageRequiredValidator });
   }

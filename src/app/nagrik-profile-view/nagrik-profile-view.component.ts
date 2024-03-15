@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormGroup } from '@angular/forms';
 import { NagrikHomeComponent } from '../nagrik-home/nagrik-home.component';
 import { CommonModule } from '@angular/common';
 
@@ -14,11 +13,10 @@ import { CommonModule } from '@angular/common';
 export class NagrikProfileViewComponent {
   // Initializations
   
-  userAadhar= 123456789012; //Has to be taken from Database
-  familyAadhar= 123456789012; //Has to be taken from Database
+  userAadhar= 100000000000; //Has to be taken from Database
 
-  nagrikFormData= JSON.parse(localStorage.getItem('userProfileData')|| '{}') ;
-  familyMembers= this.nagrikFormData[this.userAadhar].profileFamily;
+  nagrikFormData= JSON.parse(localStorage.getItem('userProfileData')|| '[]') ;
+  familyMembers= this.nagrikFormData[this.userAadhar]?.profileFamily || '[]'
   familyMembersDetails: any[] = Object.values(this.familyMembers);
   familySize:number= Object.keys(this.familyMembers).length;
 
@@ -30,6 +28,6 @@ export class NagrikProfileViewComponent {
     // console.log("Nagrik Family Details", this.familymembersdetails);
     // console.log("Nagrik Family Details2", this.familymembersdetails);
     // console.log("Nagrik Family IDs ", this.familyID);
-    console.log(this.familyMembersDetails[0].familyFullName)
+    // console.log(this.familyMembersDetails[0].familyFullName);
   }
 }
