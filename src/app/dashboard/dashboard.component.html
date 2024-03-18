@@ -117,7 +117,42 @@
     columnMode="force"
   >
 </ngx-datatable>
+<ng-template #assignHRButton let-row="row">
+    <button (click)="assignHr(row)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Assign HR
+    </button>
+    <!-- <p *ngIf="row.profileFamily=='No family Added'">No Family Added</p> -->
+  </ng-template>
+
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Assign HR</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="jansevakArr.length==0"> 
+               <p style="color: red;">
+                    No registered HRs to assign    
+                </p>  
+            </div>
+            <div *ngIf="jansevakArr.length!=0">
+                <form action="" [formGroup]="assignHrForm" (ngSubmit)="hrName()">
+                    Select HR from list
+                    <select name="" id="" formControlName="name">
+                        <option *ngFor="let hr of jansevakArr" value={{hr.name}}>{{hr.name}}</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary" >Assign HR</button>
+                </form>
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>
 </div>
 <!-- aadhaar : 34 -->
 <!-- address : "qwerty" -->

@@ -13,10 +13,10 @@ import { CommonModule } from '@angular/common';
 export class NagrikProfileViewComponent {
   // Initializations
   
-  userAadhar= 100000000000; //Has to be taken from Database
+  userAadhar= 0; //Has to be taken from Database
 
   nagrikFormData= JSON.parse(localStorage.getItem('acceptedJoinees')|| '[]') ;
-  familyMembers= this.nagrikFormData[this.userAadhar]?.profileFamily || '[]'
+  familyMembers= this.nagrikFormData[0]?.profileFamily || '[]'
   familyMembersDetails: any[] = Object.values(this.familyMembers);
   familySize:number= Object.keys(this.familyMembers).length;
 

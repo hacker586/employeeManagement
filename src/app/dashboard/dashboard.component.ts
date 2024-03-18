@@ -1,15 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 // import data from "../../data/data";
 // import janSevak from "../../data/janSevakList";
-import nagrik from "../../data/nagrik";
+// import nagrik from "../../data/nagrik";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CommonModule } from '@angular/common';
 import { LinearScale,CategoryScale, BarController, BarElement, PieController, DoughnutController, ArcElement, Tooltip, Legend } from 'chart.js';
 import {Chart} from 'chart.js'
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgxDatatableModule, CommonModule],
+  imports: [ReactiveFormsModule,NgxDatatableModule, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -21,6 +23,20 @@ export class DashboardComponent implements OnInit {
   jansevakArrColumns: any[] = []
   allComplaintsColumns: any[] = []
   bool: boolean = true;
+  @ViewChild('assignHRButton', {static: true})
+  assignHRButton!: TemplateRef<any>;
+  userHr:any[] = [];
+
+  assignHrForm: FormGroup; // Define the property with the correct type
+
+constructor(private fb: FormBuilder) {
+  this.assignHrForm = this.createForm();
+}
+createForm(): FormGroup {
+  return this.fb.group({
+    name: ['', Validators.required],
+  });
+}
 //   profileAadharNum: "123456789012"
 // profileCreateTime: "14th March 2024"
 // profileEmailAdd: "a@gmail.com"
@@ -135,7 +151,8 @@ export class DashboardComponent implements OnInit {
         name: 'Description'
       },{
         prop: "complaintAssignedHR",
-        name: 'Assigned HR'
+        name: 'Assigned HR',
+        cellTemplate: this.assignHRButton,
       },{
         prop: "complaintStatus",
         name: 'status'
@@ -225,7 +242,15 @@ export class DashboardComponent implements OnInit {
   boolFalse() {
     this.bool = false;
   };
-
+  assignHr(row: any){
+    this.userHr = row;
+    // console.log("I am clicked", row)
+  }
+  hrName(){
+    // console.log( this.assignHrForm.value)
+    this.userHr[0].assignHr = this.assignHrForm.value.name;
+    console.log(this.userHr)
+  }
 
 
 
