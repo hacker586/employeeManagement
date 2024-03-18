@@ -12,8 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { NagrikHomeComponent } from './nagrik-home/nagrik-home.component';
 import { NagrikComplaintComponent } from './nagrik-complaint/nagrik-complaint.component';
 import { NagrikAnnouncementsComponent } from './nagrik-announcements/nagrik-announcements.component';
-import { NagrikViewJansevakComponent } from './nagrik-view-jansevak/nagrik-view-jansevak.component';
 import { NagrikProfileViewComponent } from './nagrik-profile-view/nagrik-profile-view.component';
+import { NagrikFAQComponent } from './nagrik-faq/nagrik-faq.component';
 
 // import { Component } from '@angular/core';
 export const routes: Routes = [
@@ -30,7 +30,7 @@ export const routes: Routes = [
     {path:'nagrikComplaint',component:NagrikComplaintComponent},
     {path:'nagrikComplaint/:section',component:NagrikComplaintComponent},
     {path:'nagrikAnnouncements',component:NagrikAnnouncementsComponent},
-    {path:'nagrikViewJansevak',component:NagrikViewJansevakComponent},
+    {path:'nagrikFAQ',component:NagrikFAQComponent},
     {path:'nagrikProfileView',component:NagrikProfileViewComponent},
     {path:'', redirectTo:'/home', pathMatch:'full'},
 ];

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {  ActivatedRoute, RouterOutlet, Router } from '@angular/router';
 import { NagrikHomeComponent } from '../nagrik-home/nagrik-home.component';
 import { CommonModule } from '@angular/common';
-import complaintsList from './complaints';
 import { AbstractControl, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import complaintsList from './complaints';
 
 @Component({
   selector: 'app-nagrik-complaint',

@@ -1,2 +1,20 @@
 <app-nagrik-home></app-nagrik-home>
-<p>nagrik-announcements works!</p>
+<div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>All Announcements</h3>
+    </div>
+    <div class="card-body">
+        <div class="profile-details">
+            <div *ngFor="let announcements of allAnnouncements, index as i">
+                {{i+1}}.
+                <div class="profile-photo text-center">
+                  <img [src]="allAnnouncements[i].photo" alt="Profile Photo" class="rounded-circle img-fluid">
+                </div>
+                <div> 
+                    <p><strong>Title:</strong> {{ allAnnouncements[i].title }}</p>
+                    <p><strong>Description:</strong> {{ allAnnouncements[i].description }}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
