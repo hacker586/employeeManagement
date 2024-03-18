@@ -16,7 +16,7 @@ export class NagrikProfileViewComponent {
   userAadhar= 0; //Has to be taken from Database
 
   nagrikFormData= JSON.parse(localStorage.getItem('acceptedJoinees')|| '[]') ;
-  familyMembers= this.nagrikFormData[0]?.profileFamily || '[]'
+  familyMembers= this.nagrikFormData[this.userAadhar]?.profileFamily || '[]'
   familyMembersDetails: any[] = Object.values(this.familyMembers);
   familySize:number= Object.keys(this.familyMembers).length;
 
