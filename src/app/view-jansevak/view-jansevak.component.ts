@@ -11,8 +11,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
   styleUrl: './view-jansevak.component.css'
 })
 export class ViewJansevakComponent implements OnInit {
-  @ViewChild('acceptButton', {static: true})
-  acceptButton!: TemplateRef<any>;
   @ViewChild('declineButton', {static: true})
   declineButton!: TemplateRef<any>;
   JansevakArr = JSON.parse(localStorage.getItem("JansevakArr") || "[]");
@@ -47,9 +45,6 @@ export class ViewJansevakComponent implements OnInit {
         prop:"voterId",
         name:"voterId"
       },{
-        name:"Accept",
-        cellTemplate: this.acceptButton,
-      },{
         name:"Decline",
         cellTemplate: this.declineButton,
       }
@@ -81,9 +76,6 @@ export class ViewJansevakComponent implements OnInit {
         name:"voterId"
       }
     ];
-  }
-  onAccept(){
-
   }
   onDecline(row: any){
     // console.log("haha",row);

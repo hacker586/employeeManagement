@@ -8,6 +8,11 @@ import { LinearScale,CategoryScale, BarController, BarElement, PieController, Do
 import {Chart} from 'chart.js'
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+interface User {
+  complaintAssignedHR: string; // Define the properties of the user object
+  // Define other properties here...
+  complaintInitial: string;
+}
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -16,21 +21,23 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
+  user: User;
   acceptedJoinees = JSON.parse(localStorage.getItem("acceptedJoinees")|| "[]");
   jansevakArr = JSON.parse(localStorage.getItem("JansevakArr" )|| "[]");
-  nagrik = JSON.parse(localStorage.getItem("allComplaints")|| '[]');
+  nagrik = JSON.parse(localStorage.getItem("allComplaints")|| "[]");
   acceptedJoineesColumns: any[] = []
   jansevakArrColumns: any[] = []
   allComplaintsColumns: any[] = []
   bool: boolean = true;
   @ViewChild('assignHRButton', {static: true})
   assignHRButton!: TemplateRef<any>;
-  userHr:any[] = [];
+  // user: any[]= [];
 
   assignHrForm: FormGroup; // Define the property with the correct type
 
 constructor(private fb: FormBuilder) {
   this.assignHrForm = this.createForm();
+  this.user = {} as User;
 }
 createForm(): FormGroup {
   return this.fb.group({
@@ -64,8 +71,9 @@ createForm(): FormGroup {
   ngOnInit(): void {
     this.jansevakArr = JSON.parse(localStorage.getItem("JansevakArr")|| "[]");
     this.acceptedJoinees = JSON.parse(localStorage.getItem("acceptedJoinees")|| "[]")
+    this.nagrik = JSON.parse(localStorage.getItem("allComplaints")|| "[]");
     // console.log(typeof(this.jansevakArr))
-    console.log("HII", this.jansevakArr)
+    // console.log("HII", this.jansevakArr)
     Chart.register(LinearScale,CategoryScale,BarController,BarElement,DoughnutController,ArcElement,Tooltip,Legend);
     this.bool = true;
     this.acceptedJoineesColumns = [
@@ -243,13 +251,28 @@ createForm(): FormGroup {
     this.bool = false;
   };
   assignHr(row: any){
-    this.userHr = row;
-    // console.log("I am clicked", row)
+    // row.complaintAssignedHR
+    this.user = row;
+    
   }
   hrName(){
-    // console.log( this.assignHrForm.value)
-    this.userHr[0].assignHr = this.assignHrForm.value.name;
-    console.log(this.userHr)
+
+    // console.log("HR name", this.assignHrForm.value.name)
+    // console.log("I am clicked", this.user)
+    // console.log("user",this.user.complaintAssignHr)
+    this.nagrik = this.nagrik.filter((e: any)=>e.complaintInitial!=this.user.complaintInitial);
+    
+    this.user.complaintAssignedHR = this.assignHrForm.value.name;
+    // console.log(this.user);
+    this.nagrik.push(this.user);
+    localStorage.setItem("allComplaints", JSON.stringify(this.nagrik));
+    console.log("nagrik",this.nagrik);
+    location.reload();
+    // this.user[0].complaintAssignHr = this.assignHrForm.value.name
+    // console.log(this.user)
+    // this.userHr[0].complaintAssignedHR
+    // = this.assignHrForm.value.name;
+    // console.log(this.userHr)
   }
 
 

@@ -144,7 +144,7 @@
                     <select name="" id="" formControlName="name">
                         <option *ngFor="let hr of jansevakArr" value={{hr.name}}>{{hr.name}}</option>
                     </select>
-                    <button type="submit" class="btn btn-primary" >Assign HR</button>
+                    <button [disabled]="assignHrForm.invalid" data-bs-dismiss="modal" aria-label="Close" type="submit" class="btn btn-primary" >Assign HR</button>
                 </form>
             </div>
             
